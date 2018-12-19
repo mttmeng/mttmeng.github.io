@@ -72,11 +72,19 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/19/环境配置/">环境配置</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>layout: “<br>title: 环境配置</p>
-<h1 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h1><p>$ ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a><br>(# 常见包的安装请参考官方教程 <a href="https://brew.sh/" target="_blank" rel="noopener">https://brew.sh/</a>)<br>$ brew install coreutils</p>
+        <h1 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h1><p>$ ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a><br>(# 常见包的安装请参考官方教程 <a href="https://brew.sh/" target="_blank" rel="noopener">https://brew.sh/</a>)<br>$ brew install coreutils</p>
 <h1 id="安装Node-js-6"><a href="#安装Node-js-6" class="headerlink" title="安装Node.js 6"></a>安装Node.js 6</h1><p>$ brew install node@6<br>$ ln -s /usr/local/Cellar/node@6/6.x.x/bin/node /usr/local/bin<br>$ npm install npm@4 gulp@3 -g</p>
 <p>问题：<br>1、 在第一步，如果是第一次运行node@6，需要运行  export PATH=”/usr/local/opt/node@6/bin:$PATH”  添加一些必须文件。<br><img src="https://note.youdao.com/yws/public/resource/f90fb85d8528d7b26eba766b2c4ee548/xmlnote/F81EE43806AD43F5BF4D3201B9470491/34" alt="Alt"></p>
 <p>2、在第三步不要忽略install之前的npm，否则安装失败，要重新安装。<br>      若加载过多，则存在异常，检查一下npm版本是否正确，重新运行命令行。<br>      以下是正确结果。<br><img src="https://note.youdao.com/yws/public/resource/f90fb85d8528d7b26eba766b2c4ee548/xmlnote/C5AE68EB75184DEAB7346A30B53D8274/36" alt="Alt"></p>
@@ -104,12 +112,11 @@
 <h1 id="安装Tomcat-7-8-72"><a href="#安装Tomcat-7-8-72" class="headerlink" title="安装Tomcat@7.8.72"></a>安装<a href="mailto:Tomcat@7.8.72" target="_blank" rel="noopener">Tomcat@7.8.72</a></h1><p>1、首先到官网下载Tomcat：<a href="https://tomcat.apache.org/download-90.cgi" target="_blank" rel="noopener">https://tomcat.apache.org/download-90.cgi</a><br><img src="https://note.youdao.com/yws/public/resource/f90fb85d8528d7b26eba766b2c4ee548/xmlnote/3A2BFC3ED5BE405ABDDDFF09FC8CAE31/35" alt="Alt"><br>2、解压tomcat文件,最好把它文件名重命名为”Tomcat”，方便以后查找，最后把它放入/Library(资源库中)<br>(1).点击finder–&gt;用户–&gt;你电脑的名字–&gt;资源库(有的也叫/Library)。<br>(2).有些苹果将library目录隐藏起来了，可以直接点左上角前往，前往文件夹，路径填 /资源库，就进入了资源库了。</p>
 <p>3、用终端直接打开Tomcat<br>(1).进入Tomcat的bin目录下：<br>      输入cd /Library/Tomcat/bin ，回车。(也可以打开Tomcat文件夹，把bin文件夹直接拖拉到终端，但要记得先输入cd+空格)<br>(2).授权bin目录下的所有操作：<br>      输入sudo chmod 755 *.sh，回车<br>(3).输入密码，回车<br>(4).开启Tomcat，输入sudo sh ./startup.sh，回车<br><img src="https://note.youdao.com/yws/public/resource/f90fb85d8528d7b26eba766b2c4ee548/xmlnote/0D867A0DE0B84403B3BA553A22D14B4C/41" alt="Alt"><br>4、到浏览器输入网址localhost，若出现了下面的画面就证明成功了<br><img src="https://note.youdao.com/yws/public/resource/f90fb85d8528d7b26eba766b2c4ee548/xmlnote/9CF5DC18A4C345D29D5C3272787D8A7D/37" alt="Alt"></p>
 <h1 id="配置-m2-settings-xml"><a href="#配置-m2-settings-xml" class="headerlink" title="配置~/.m2/settings.xml"></a>配置~/.m2/settings.xml</h1><p>在终端输入命令行：open ~/.m2，将下载下来的settings.xml文件放入子文件夹中。</p>
-<p>date: 2018-12-19 00:11:22</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/19/环境配置/" data-id="cjptyvybv00010s53dhhh2mdt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/19/环境配置/" data-id="cjpvbzj4d0001f0531zmc6x0v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -129,11 +136,19 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/18/第一天/">新手第一天 - 关于怎么安装环境软件</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: 新手第一天 - 关于怎么安装环境软件<br>@<a href="安装Node@6">TOC</a></p>
-<h1 id="安装Node-js踩过的坑"><a href="#安装Node-js踩过的坑" class="headerlink" title="安装Node.js踩过的坑"></a>安装Node.js踩过的坑</h1><ol>
+        <h1 id="安装Node-js踩过的坑"><a href="#安装Node-js踩过的坑" class="headerlink" title="安装Node.js踩过的坑"></a>安装Node.js踩过的坑</h1><ol>
 <li><p>在用自己的电脑安装Node.js的时候，由于自己账户权限的问题，用.msi安装失败，这是错误信息，同志们如果遇到这种情况，可以往账户权限那考虑；</p>
 <p> <img src="https://note.youdao.com/yws/public/resource/7fcf27678c45d715aca2a1d62945eb6e/xmlnote/1EF8E355745A4FC287A105234F2EDA1A/EB698873ADB9417C85A59B49BF380638/13" alt="Alt"><br>   <img src="https://note.youdao.com/yws/public/resource/5f64f121533e64b11cd47dbbb56cc3b5/xmlnote/0987070B72AD400A9F2A6FDC0C74EA33/E381CFE68F5248EA84410CDC87F0BAD7/19" alt="Alt"></p>
 </li>
@@ -149,13 +164,13 @@
 <li>上传图片到有道云笔记上的”我的图片”目录下；</li>
 <li>分享图片，会得到1个文件的分享URL，复制这个URL，在浏览器中打开，会看到图片；</li>
 <li>右击图片 - 复制图片地址。</li>
-<li>在Markdown文件中引用这个图片地址。<br>date: 2018-12-17 22:52:49</li>
+<li>在Markdown文件中引用这个图片地址。</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/18/第一天/" data-id="cjptyvycb00020s532qz2helg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/18/第一天/" data-id="cjpvbzj4t0002f053ui9qqa8u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/15/hello-world/" data-id="cjptyvyba00000s53rvc9qckz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/15/hello-world/" data-id="cjpvbzj3i0000f053a5uatpxi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -241,11 +256,11 @@
       <ul>
         
           <li>
-            <a href="/2018/12/19/环境配置/">(no title)</a>
+            <a href="/2018/12/19/环境配置/">环境配置</a>
           </li>
         
           <li>
-            <a href="/2018/12/18/第一天/">(no title)</a>
+            <a href="/2018/12/18/第一天/">新手第一天 - 关于怎么安装环境软件</a>
           </li>
         
           <li>
