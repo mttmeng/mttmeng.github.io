@@ -7,13 +7,17 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="div高度自适应水平垂直居中方法一：子元素绝对定位，距离顶部50%，左边50%，然后使用CSS3的transform：translate（-50%；-50%）；缺点：不支持IF9以下不支持transform属性的浏览器 HTML代码：123&amp;lt;div class=&amp;quot;box&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;&amp;lt;/div&amp;g">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/01/02/高度自适应水平垂直居中/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="div高度自适应水平垂直居中方法一：子元素绝对定位，距离顶部50%，左边50%，然后使用CSS3的transform：translate（-50%；-50%）；缺点：不支持IF9以下不支持transform属性的浏览器 HTML代码：123&amp;lt;div class=&amp;quot;box&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;&amp;lt;/div&amp;g">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-01T15:58:39.831Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="div高度自适应水平垂直居中方法一：子元素绝对定位，距离顶部50%，左边50%，然后使用CSS3的transform：translate（-50%；-50%）；缺点：不支持IF9以下不支持transform属性的浏览器 HTML代码：123&amp;lt;div class=&amp;quot;box&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;content&amp;quot;&amp;gt;&amp;lt;/div&amp;g">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,9 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-高度自适应水平垂直居中" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-高度自适应水平垂直居中" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/02/高度自适应水平垂直居中/" class="article-date">
   <time datetime="2019-01-01T16:03:45.595Z" itemprop="datePublished">2019-01-02</time>
@@ -101,233 +103,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-弹框遮罩" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/02/弹框遮罩/" class="article-date">
-  <time datetime="2019-01-01T16:03:45.533Z" itemprop="datePublished">2019-01-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="第一种方法：空div作为遮罩"><a href="#第一种方法：空div作为遮罩" class="headerlink" title="第一种方法：空div作为遮罩"></a>第一种方法：空div作为遮罩</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div &gt;&lt;/div&gt;</span><br><span class="line">&lt;div &gt;弹出框内容&lt;div&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">.shadow &#123;</span><br><span class="line">position: fixed;</span><br><span class="line">top: 0;</span><br><span class="line">left: 0;</span><br><span class="line">width: 100%;</span><br><span class="line">height: 100%;</span><br><span class="line">background: #000;</span><br><span class="line">opacity: 0.3;</span><br><span class="line">display: none;</span><br><span class="line">&#125;</span><br><span class="line">.alert &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<h6 id="第二种方法：将弹框放在遮罩div中"><a href="#第二种方法：将弹框放在遮罩div中" class="headerlink" title="第二种方法：将弹框放在遮罩div中"></a>第二种方法：将弹框放在遮罩div中</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div &gt;</span><br><span class="line">&lt;div &gt;弹出框内容&lt;div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.shadow &#123;</span><br><span class="line">position: fixed;</span><br><span class="line">top: 0;</span><br><span class="line">left: 0;</span><br><span class="line">width: 100%;</span><br><span class="line">height: 100%;</span><br><span class="line">background: rgba(0, 0, 0, 0.2);</span><br><span class="line">display: none;</span><br><span class="line">&#125;</span><br><span class="line">.alert &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p>用这种方法，如果不想要遮罩样式，可将遮罩的opacity改为0</p>
+  
+    <a href="/2019/01/02/弹框遮罩/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/02/弹框遮罩/" data-id="cjqdy002t0000yw5379j8jxnc" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-Mac快捷键" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/01/Mac快捷键/" class="article-date">
-  <time datetime="2019-01-01T14:42:52.000Z" itemprop="datePublished">2019-01-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h3><h6 id="1、空格（space）键"><a href="#1、空格（space）键" class="headerlink" title="1、空格（space）键"></a>1、空格（space）键</h6><p>在Mac系统里，几乎所有文件都可以直接用空格键快速查看预览。拿图片举例，只要点选文件夹里某张图片，点击空格键就打开了，再点击上下左右键可切换浏览其他图片。</p>
-<h6 id="2、Command-⌘"><a href="#2、Command-⌘" class="headerlink" title="2、Command ⌘"></a>2、Command ⌘</h6><p>⌘ + C 复制<br>⌘ + V 粘贴<br>⌘ + X 剪切<br>⌘ + option + V 移动<br>⌘ + A 全选<br>⌘ + delete 删除 相当于Windows下的Ctrl + D<br>⌘ + S 保存<br>⌘ + shift + 4 截图<br>⌘ + W 关闭当前的软件窗口（软件并没有真正退出进程），相当于点了右上角的红色叉叉。<br>⌘ + Q 真正退出软件。<br>⌘ + option + esc 强制退出某个软件。通常在软件无响应时使用。</p>
-<p>⌘ + Z 撤销<br>刚删除了一张图片，可以点开废纸篓，找到刚刚删除的图片，然后放回原处。或者是在删除后马上点击 ⌘+Z，这时刚删除的图片回到原来的位置！</p>
-<p>⌘ + N 新建<br>新建正在用的东西。比如正在用 Safari，那 ⌘+N 就是新建一个 Safari 窗口。在用 Photoshop，⌘+N 就是新建一个 PS 文稿。<br>control + 空格键 切换输入法。（也可以自己设置）<br>⌘ + 空格键 显示或隐藏 Spotlight 搜索栏。<br>⌘ + tab 切换app。<br>有些快捷键可以到系统偏好设置里修改成你喜欢（习惯）的，比如输入法，Spotlight 等。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/01/Mac快捷键/" data-id="cjqdv5l8o00009w53mq9orcxj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-环境配置" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/19/环境配置/" class="article-date">
-  <time datetime="2018-12-18T16:23:33.000Z" itemprop="datePublished">2018-12-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/19/环境配置/">环境配置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h1><p>$ ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a><br>(# 常见包的安装请参考官方教程 <a href="https://brew.sh/" target="_blank" rel="noopener">https://brew.sh/</a>)<br>$ brew install coreutils</p>
-<h1 id="安装Node-js-6"><a href="#安装Node-js-6" class="headerlink" title="安装Node.js 6"></a>安装Node.js 6</h1><p>$ brew install node@6<br>$ ln -s /usr/local/Cellar/node@6/6.x.x/bin/node /usr/local/bin<br>$ npm install npm@4 gulp@3 -g</p>
-<p>问题：<br>1、 在第一步，如果是第一次运行node@6，需要运行  export PATH=”/usr/local/opt/node@6/bin:$PATH”  添加一些必须文件。<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/1.jpg" alt="Alt"></p>
-<p>2、在第三步不要忽略install之前的npm，否则安装失败，要重新安装。<br>      若加载过多，则存在异常，检查一下npm版本是否正确，重新运行命令行。<br>      以下是正确结果。<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/2.jpg" alt="Alt"></p>
-<h1 id="脚手架"><a href="#脚手架" class="headerlink" title="脚手架"></a>脚手架</h1><p>Seed-cli是公司所用的脚手架，这里我安装create-react-app<br>按这个步骤走下去：</p>
-<ul>
-<li><p>mkdir workspace</p>
-</li>
-<li><p>cd workspace</p>
-</li>
-<li><p>npm install -g create-react-app</p>
-</li>
-<li><p>create-react-app my-app</p>
-<p>使用命令创建应用，myapp为项目名称</p>
-</li>
-<li><p>cd my-app</p>
-<p>进入目录，然后就启动</p>
-</li>
-<li><p>npm start</p>
-<p>启动之后打开的页面：<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/3.jpg" alt="Alt"></p>
-</li>
-</ul>
-<h1 id="安装Intellij-IDEA"><a href="#安装Intellij-IDEA" class="headerlink" title="安装Intellij IDEA"></a>安装Intellij IDEA</h1><p><a href="https://www.jetbrains.com/idea/download/" target="_blank" rel="noopener">https://www.jetbrains.com/idea/download/</a><br>$ brew cask install java<br>$ brew install maven</p>
-<p>$ cd /etc/<br>$ ls<br>$ Sudo vi hosts</p>
-<p>然后在网上找一个Idea注册码（链接：<a href="http://idea.lanyus.com/" target="_blank" rel="noopener">http://idea.lanyus.com/</a> ），破解IDEA</p>
-<h1 id="安装Tomcat-7-8-72"><a href="#安装Tomcat-7-8-72" class="headerlink" title="安装Tomcat@7.8.72"></a>安装<a href="mailto:Tomcat@7.8.72" target="_blank" rel="noopener">Tomcat@7.8.72</a></h1><p>1、首先到官网下载Tomcat：<a href="https://tomcat.apache.org/download-90.cgi" target="_blank" rel="noopener">https://tomcat.apache.org/download-90.cgi</a><br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/4.jpg" alt="Alt"><br>2、解压tomcat文件,最好把它文件名重命名为”Tomcat”，方便以后查找，最后把它放入/Library(资源库中)<br>(1).点击finder–&gt;用户–&gt;你电脑的名字–&gt;资源库(有的也叫/Library)。<br>(2).有些苹果将library目录隐藏起来了，可以直接点左上角前往，前往文件夹，路径填 /资源库，就进入了资源库了。</p>
-<p>3、用终端直接打开Tomcat<br>(1).进入Tomcat的bin目录下：<br>      输入cd /Library/Tomcat/bin ，回车。(也可以打开Tomcat文件夹，把bin文件夹直接拖拉到终端，但要记得先输入cd+空格)<br>(2).授权bin目录下的所有操作：<br>      输入sudo chmod 755 *.sh，回车<br>(3).输入密码，回车<br>(4).开启Tomcat，输入sudo sh ./startup.sh，回车<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/5.jpg" alt="Alt"><br>4、到浏览器输入网址localhost，若出现了下面的画面就证明成功了<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/6.jpg" alt="Alt"></p>
-<h1 id="配置-m2-settings-xml"><a href="#配置-m2-settings-xml" class="headerlink" title="配置~/.m2/settings.xml"></a>配置~/.m2/settings.xml</h1><p>在终端输入命令行：open ~/.m2，将下载下来的settings.xml文件放入子文件夹中。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/19/环境配置/" data-id="cjqdv5l9z00029w53qe0vxd5d" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-第一天" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/18/第一天/" class="article-date">
-  <time datetime="2018-12-17T16:55:08.000Z" itemprop="datePublished">2018-12-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/18/第一天/">新手第一天 - 关于怎么安装环境软件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="安装Node-js踩过的坑"><a href="#安装Node-js踩过的坑" class="headerlink" title="安装Node.js踩过的坑"></a>安装Node.js踩过的坑</h1><ol>
-<li><p>在用自己的电脑安装Node.js的时候，由于自己账户权限的问题，用.msi安装失败，这是错误信息，同志们如果遇到这种情况，可以往账户权限那考虑；</p>
-<p> <img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/MSI.jpg" alt="Alt"><br>   <img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/MSI失败.jpg" alt="Alt"></p>
-</li>
-<li><p>接下来我用的Node.js压缩包安装成功的。<br>此外，在安装git、node.js的时候不要忘了配置环境变量；<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/环境变量.jpg" alt="Alt"><br><em>在Mac系统上安装node@6时，如果出现提示你未将某些文件导入指定文件夹下时，可以按照提示信息导入该文件</em> </p>
-</li>
-</ol>
-<h1 id="如何安装IntelliJ-IDEA（破解版）"><a href="#如何安装IntelliJ-IDEA（破解版）" class="headerlink" title="如何安装IntelliJ IDEA（破解版）"></a>如何安装IntelliJ IDEA（破解版）</h1><ol>
-<li>今天得到一位大佬的指导，学到了一个安装破解版IDEA的方法，破解码在这里告诉大家，其余步骤待更新。。。<br>链接：<a href="http://idea.lanyus.com/" target="_blank" rel="noopener">http://idea.lanyus.com/</a></li>
-</ol>
-<h1 id="如何在Markdown中引用本地图片"><a href="#如何在Markdown中引用本地图片" class="headerlink" title="如何在Markdown中引用本地图片"></a>如何在Markdown中引用本地图片</h1><p>除了github、博客这两种方式外，还有两外一种简单的方法：</p>
-<ol>
-<li>管理自己的图片：在有道云笔记中新建一个目录/文件夹——我的图片；</li>
-<li>上传图片到有道云笔记上的”我的图片”目录下；</li>
-<li>分享图片，会得到1个文件的分享URL，复制这个URL，在浏览器中打开，会看到图片；</li>
-<li>右击图片 - 复制图片地址。</li>
-<li>在Markdown文件中引用这个图片地址。</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/18/第一天/" data-id="cjqdv5lae00039w53g79j50y8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/15/hello-world/" class="article-date">
-  <time datetime="2018-12-15T11:30:30.023Z" itemprop="datePublished">2018-12-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/15/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/15/hello-world/" data-id="cjqdv5l9k00019w534k6sk535" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
