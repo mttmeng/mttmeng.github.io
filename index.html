@@ -62,10 +62,43 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-react - 列表和key" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/06/react - 列表和key/" class="article-date">
+  <time datetime="2019-01-06T13:39:21.876Z" itemprop="datePublished">2019-01-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="react-列表和key"><a href="#react-列表和key" class="headerlink" title="react - 列表和key"></a>react - 列表和key</h1><h6 id="1、列表"><a href="#1、列表" class="headerlink" title="1、列表"></a>1、列表</h6><p>使用 JavaScript 的 map() 方法来创建列表。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const numbers = [1, 2, 3, 4, 5];</span><br><span class="line">const listItems = numbers.map((numbers) =&gt;</span><br><span class="line">  &lt;li&gt;&#123;numbers&#125;&lt;/li&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>但这样写Chrome控制台会提示我们，应该给列表中的每个元素添加一个名为key的属性。</p>
+<h6 id="2、key"><a href="#2、key" class="headerlink" title="2、key"></a>2、key</h6><p>   react使用key属性来标记列表中的每个元素，当列表发生变化时，react可以通过key知道哪些元素发生了变化，从而只重新渲染发生变化的元素，提高渲染效率。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const numbers = [1, 2, 3, 4, 5];</span><br><span class="line">const listItems = numbers.map((number) =&gt;</span><br><span class="line">  &lt;li key=&#123;number.toString()&#125;&gt;</span><br><span class="line">    &#123;number&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>  一个元素的 key 最好是这个元素在列表中拥有的一个独一无二的字符串。通常，我们使用来自数据的 id 作为元素的 key<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const todoItems = todos.map((todo) =&gt;</span><br><span class="line">  &lt;li key=&#123;todo.id&#125;&gt;</span><br><span class="line">    &#123;todo.text&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>当元素没有确定的 id 时，你可以使用他的序列号索引 index 作为 key。<br>但并不推荐使用索引作为key，因为一旦列表中的数据发生重排，数据的索引也会发生改变，不利于react的渲染。</p>
+<h6 id="3、问题"><a href="#3、问题" class="headerlink" title="3、问题"></a>3、问题</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li key=&#123;number.toString()&#125;&gt;</span><br></pre></td></tr></table></figure>
+<p>.toString()的作用</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/06/react - 列表和key/" data-id="cjqkyf92500004s53ivt3pqi9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-高度自适应水平垂直居中" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/02/高度自适应水平垂直居中/" class="article-date">
-  <time datetime="2019-01-01T16:03:45.595Z" itemprop="datePublished">2019-01-02</time>
+    <a href="/2019/01/06/高度自适应水平垂直居中/" class="article-date">
+  <time datetime="2019-01-06T12:35:47.435Z" itemprop="datePublished">2019-01-06</time>
 </a>
     
   </div>
@@ -95,7 +128,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/02/高度自适应水平垂直居中/" data-id="cjqdy005f0001yw533zyfd8dk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/06/高度自适应水平垂直居中/" data-id="cjqkyf93g00034s530wrik13h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -105,10 +138,10 @@
 
 
   
-    <article id="post-弹框遮罩" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-弹框遮罩的两种实现方式" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/02/弹框遮罩/" class="article-date">
-  <time datetime="2019-01-01T16:03:45.533Z" itemprop="datePublished">2019-01-02</time>
+    <a href="/2019/01/06/弹框遮罩的两种实现方式/" class="article-date">
+  <time datetime="2019-01-06T12:32:36.771Z" itemprop="datePublished">2019-01-06</time>
 </a>
     
   </div>
@@ -117,14 +150,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h6 id="第一种方法：空div作为遮罩"><a href="#第一种方法：空div作为遮罩" class="headerlink" title="第一种方法：空div作为遮罩"></a>第一种方法：空div作为遮罩</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div &gt;&lt;/div&gt;</span><br><span class="line">&lt;div &gt;弹出框内容&lt;div&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">.shadow &#123;</span><br><span class="line">position: fixed;</span><br><span class="line">top: 0;</span><br><span class="line">left: 0;</span><br><span class="line">width: 100%;</span><br><span class="line">height: 100%;</span><br><span class="line">background: #000;</span><br><span class="line">opacity: 0.3;</span><br><span class="line">display: none;</span><br><span class="line">&#125;</span><br><span class="line">.alert &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<h6 id="第二种方法：将弹框放在遮罩div中"><a href="#第二种方法：将弹框放在遮罩div中" class="headerlink" title="第二种方法：将弹框放在遮罩div中"></a>第二种方法：将弹框放在遮罩div中</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div &gt;</span><br><span class="line">&lt;div &gt;弹出框内容&lt;div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.shadow &#123;</span><br><span class="line">position: fixed;</span><br><span class="line">top: 0;</span><br><span class="line">left: 0;</span><br><span class="line">width: 100%;</span><br><span class="line">height: 100%;</span><br><span class="line">background: rgba(0, 0, 0, 0.2);</span><br><span class="line">display: none;</span><br><span class="line">&#125;</span><br><span class="line">.alert &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p>用这种方法，如果不想要遮罩样式，可将遮罩的opacity改为0</p>
+        <h2 id="弹框遮罩的两种实现方式"><a href="#弹框遮罩的两种实现方式" class="headerlink" title="弹框遮罩的两种实现方式"></a>弹框遮罩的两种实现方式</h2><h6 id="第一种方法：空div作为遮罩"><a href="#第一种方法：空div作为遮罩" class="headerlink" title="第一种方法：空div作为遮罩"></a>第一种方法：空div作为遮罩</h6><p>优点：可以方便的用一个开关控制遮罩的有无。<br>缺点：react组件中不支持空标签，故用这种方法会报错。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;shadow&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;alert&quot;&gt;弹出框内容&lt;div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.shadow &#123;</span><br><span class="line">    position: fixed;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    background: #000;</span><br><span class="line">    opacity: 0.3;</span><br><span class="line">    display: none;</span><br><span class="line">&#125;</span><br><span class="line">.alert &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<h6 id="第二种方法：将弹框放在遮罩div中"><a href="#第二种方法：将弹框放在遮罩div中" class="headerlink" title="第二种方法：将弹框放在遮罩div中"></a>第二种方法：将弹框放在遮罩div中</h6><p>优点：在适用于其他框架的同时，也能够适用于react;<br>可以通过shadow的opacity来控制遮罩样式的有无（如果不想要遮罩样式，可将遮罩的opacity改为0）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;shadow&quot;&gt;</span><br><span class="line">&lt;div class=&quot;alert&quot;&gt;弹出框内容&lt;div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.shadow &#123;</span><br><span class="line">    position: fixed;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    background: rgba(0, 0, 0, 0.2);</span><br><span class="line">    display: none;</span><br><span class="line">&#125;</span><br><span class="line">.alert &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/02/弹框遮罩/" data-id="cjqdy002t0000yw5379j8jxnc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/06/弹框遮罩的两种实现方式/" data-id="cjqkyf93000014s53tr8vokxt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -154,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/01/Mac快捷键/" data-id="cjqdv5l8o00009w53mq9orcxj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/01/Mac快捷键/" data-id="cjqkyf93g00024s53umm8mt17" class="article-share-link">Share</a>
       
       
     </footer>
@@ -218,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/19/环境配置/" data-id="cjqdv5l9z00029w53qe0vxd5d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/19/环境配置/" data-id="cjqkyf93v00054s53kmxt3zij" class="article-share-link">Share</a>
       
       
     </footer>
@@ -272,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/18/第一天/" data-id="cjqdv5lae00039w53g79j50y8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/18/第一天/" data-id="cjqkyf93v00044s5334bjykjv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -317,7 +349,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/15/hello-world/" data-id="cjqdv5l9k00019w534k6sk535" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/15/hello-world/" data-id="cjqkyf96x00064s53ghior4ev" class="article-share-link">Share</a>
       
       
     </footer>
@@ -358,11 +390,15 @@
       <ul>
         
           <li>
-            <a href="/2019/01/02/高度自适应水平垂直居中/">(no title)</a>
+            <a href="/2019/01/06/react - 列表和key/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2019/01/02/弹框遮罩/">(no title)</a>
+            <a href="/2019/01/06/高度自适应水平垂直居中/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/06/弹框遮罩的两种实现方式/">(no title)</a>
           </li>
         
           <li>
@@ -371,10 +407,6 @@
         
           <li>
             <a href="/2018/12/19/环境配置/">环境配置</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/18/第一天/">新手第一天 - 关于怎么安装环境软件</a>
           </li>
         
       </ul>
