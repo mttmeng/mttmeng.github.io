@@ -62,15 +62,112 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-react - 列表和key" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-bind-this" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/06/react - 列表和key/" class="article-date">
-  <time datetime="2019-01-06T13:39:21.876Z" itemprop="datePublished">2019-01-06</time>
+    <a href="/2019/01/20/bind-this/" class="article-date">
+  <time datetime="2019-01-20T05:09:45.000Z" itemprop="datePublished">2019-01-20</time>
 </a>
     
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/20/bind-this/">.bind(this)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="this-handleClick-this-handleClick-bind-this"><a href="#this-handleClick-this-handleClick-bind-this" class="headerlink" title="this.handleClick = this.handleClick.bind(this);"></a>this.handleClick = this.handleClick.bind(this);</h5><h6 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h6><p>1、把原型方法handleClick( )改变为实例方法handleClick( ),并且强制指定这个方法中的this指向当前的实例。</p>
+<p>this 是指的当前组件的实例, 如果你在方法中的 this 指向不对的话, 那么当前组件里面的state, props你都无法使用的</p>
+<p>这样写的目的是确保handleclick里面的this指向的是当前这个类。</p>
+<p>因为this是在哪调用就指向哪的，你把那个函数当做props传给了子组件，执行就不是发生在当前类了。</p>
+<p>在react中这样写，是为了让子组件在调用这个函数的时候this是指向父组件的。</p>
+<p>若一个函数采用ES6箭头函数方式定义，则不需要使用.bind(this),因为箭头函数中的this指的是上下文中的this。 （函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象）。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/bind-this/" data-id="cjr4g9mjt0000n453w4h52ibd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-call-、apply-、bind-的用法" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/20/call-、apply-、bind-的用法/" class="article-date">
+  <time datetime="2019-01-20T04:55:11.000Z" itemprop="datePublished">2019-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/20/call-、apply-、bind-的用法/">call()、apply()、bind()的用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="JavaScript-中-call-、apply-、bind-的用法"><a href="#JavaScript-中-call-、apply-、bind-的用法" class="headerlink" title="JavaScript 中 call()、apply()、bind() 的用法"></a>JavaScript 中 call()、apply()、bind() 的用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">obj.myFun.call(db,&apos;成都&apos;,&apos;上海&apos;)；　　　　 // 德玛 年龄 99 来自 成都去往上海</span><br><span class="line">obj.myFun.apply(db,[&apos;成都&apos;,&apos;上海&apos;]);      // 德玛 年龄 99 来自 成都去往上海</span><br><span class="line">obj.myFun.bind(db,&apos;成都&apos;,&apos;上海&apos;)();       // 德玛 年龄 99 来自 成都去往上海</span><br><span class="line">obj.myFun.bind(db,[&apos;成都&apos;,&apos;上海&apos;])();　　 // 德玛 年龄 99 来自 成都, 上海去往 undefined</span><br></pre></td></tr></table></figure>
+<h6 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h6><p>call 、bind 、 apply 这三个函数的第一个参数都是 this 的指向对象；<br>第二个参数差别是：<br>1、call 的参数是直接放进去的，第二第三第 n 个参数全都用逗号分隔，直接放到后面 obj.myFun.call(db,’成都’, … ,’string’ )。</p>
+<p>2、apply 的所有参数都必须放在一个数组里面传进去 obj.myFun.apply(db,[‘成都’, …, ‘string’ ])。</p>
+<p>3、bind 除了返回是函数以外，它 的参数和 call 一样。<br>当然，三者的参数不限定是 string 类型，允许是各种类型，包括函数 、 object 等等！</p>
+<p>4、bind 是返回对应 函数，便于稍后调用；apply 、call 则是立即调用 。</p>
+<h6 id="bind-方法"><a href="#bind-方法" class="headerlink" title="bind() 方法"></a>bind() 方法</h6><p>MDN 的解释是：bind() 方法会创建一个 新函数，称为绑定函数，当调用这个绑定函数时，绑定函数会以创建它时传入 bind() 方法的第一个参数 作为 this，传入 bind() 方法的 第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数。</p>
+<p>在 Javascript 中，多次 bind() 是无效的。更深层次的原因，bind() 的实现，相当于使用函数在内部包了一个 call / apply ，第二次 bind() 相当于再包住第一次 bind() ,故第二次以后的 bind 是无法生效的。</p>
+<p>bind方法生成了一个新的函数，称为绑定函数，传入bind方法的第一个參数作为这个绑定函数的this对象，传入bind的第二个參数连同后面调用绑定函数时传入的參数依照先后顺序（传入bind的在前）构成绑定函数的參数。</p>
+<p>.bind()创建了一个函数，当这个函数在被调用的时候。它的 this 关键词会被设置成被传入的值（这里指调用bind()时传入的參数）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/call-、apply-、bind-的用法/" data-id="cjr4g9mlk0002n4531vli1z57" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-react - 列表和key" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/06/react - 列表和key/" class="article-date">
+  <time datetime="2019-01-06T13:39:21.000Z" itemprop="datePublished">2019-01-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/06/react - 列表和key/">react - 列表和key</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -85,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/06/react - 列表和key/" data-id="cjqkzw3dt00024s53703iz830" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/06/react - 列表和key/" data-id="cjr4g9mm00004n453t61cgdc4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -98,12 +195,22 @@
     <article id="post-高度自适应水平垂直居中" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/06/高度自适应水平垂直居中/" class="article-date">
-  <time datetime="2019-01-06T12:35:47.435Z" itemprop="datePublished">2019-01-06</time>
+  <time datetime="2019-01-06T12:35:47.000Z" itemprop="datePublished">2019-01-06</time>
 </a>
     
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/06/高度自适应水平垂直居中/">div高度自适应水平垂直居中</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -128,7 +235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/06/高度自适应水平垂直居中/" data-id="cjqkzw3f400064s53ripzuqir" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/06/高度自适应水平垂直居中/" data-id="cjr4g9mmv0008n453gl28nldj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -141,12 +248,22 @@
     <article id="post-弹框遮罩的两种实现方式" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/06/弹框遮罩的两种实现方式/" class="article-date">
-  <time datetime="2019-01-06T12:32:36.771Z" itemprop="datePublished">2019-01-06</time>
+  <time datetime="2019-01-06T12:32:36.000Z" itemprop="datePublished">2019-01-06</time>
 </a>
     
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/06/弹框遮罩的两种实现方式/">弹框遮罩的两种实现方式</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -156,7 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/06/弹框遮罩的两种实现方式/" data-id="cjqkzw3e900034s53q2lcqlvz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/06/弹框遮罩的两种实现方式/" data-id="cjr4g9mm00005n453qct26y9a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -176,6 +293,16 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/01/Mac快捷键/">Mac快捷键</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h3><h6 id="1、空格（space）键"><a href="#1、空格（space）键" class="headerlink" title="1、空格（space）键"></a>1、空格（space）键</h6><p>在Mac系统里，几乎所有文件都可以直接用空格键快速查看预览。拿图片举例，只要点选文件夹里某张图片，点击空格键就打开了，再点击上下左右键可切换浏览其他图片。</p>
@@ -186,7 +313,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/01/Mac快捷键/" data-id="cjqkzw3cy00004s539zs8yukw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/01/Mac快捷键/" data-id="cjr4g9ml40001n453jqkjpbee" class="article-share-link">Share</a>
       
       
     </footer>
@@ -250,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/19/环境配置/" data-id="cjqkzw3e900044s53xsyicl1w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/19/环境配置/" data-id="cjr4g9mmf0006n453p89ofvpa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -304,7 +431,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/18/第一天/" data-id="cjqkzw3ep00054s53vzxsmaao" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/18/第一天/" data-id="cjr4g9mmf0007n45390t278to" class="article-share-link">Share</a>
       
       
     </footer>
@@ -349,7 +476,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/15/hello-world/" data-id="cjqkzw3de00014s53fgn2uyn8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/15/hello-world/" data-id="cjr4g9mlk0003n453bzmxd5q7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -390,23 +517,23 @@
       <ul>
         
           <li>
-            <a href="/2019/01/06/react - 列表和key/">(no title)</a>
+            <a href="/2019/01/20/bind-this/">.bind(this)</a>
           </li>
         
           <li>
-            <a href="/2019/01/06/高度自适应水平垂直居中/">(no title)</a>
+            <a href="/2019/01/20/call-、apply-、bind-的用法/">call()、apply()、bind()的用法</a>
           </li>
         
           <li>
-            <a href="/2019/01/06/弹框遮罩的两种实现方式/">(no title)</a>
+            <a href="/2019/01/06/react - 列表和key/">react - 列表和key</a>
           </li>
         
           <li>
-            <a href="/2019/01/01/Mac快捷键/">(no title)</a>
+            <a href="/2019/01/06/高度自适应水平垂直居中/">div高度自适应水平垂直居中</a>
           </li>
         
           <li>
-            <a href="/2018/12/19/环境配置/">环境配置</a>
+            <a href="/2019/01/06/弹框遮罩的两种实现方式/">弹框遮罩的两种实现方式</a>
           </li>
         
       </ul>

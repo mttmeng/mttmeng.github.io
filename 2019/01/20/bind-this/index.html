@@ -5,15 +5,19 @@
   
 
   
-  <title>Archives: 2018 | Hexo</title>
+  <title>.bind(this) | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="this.handleClick = this.handleClick.bind(this);作用：1、把原型方法handleClick( )改变为实例方法handleClick( ),并且强制指定这个方法中的this指向当前的实例。 this 是指的当前组件的实例, 如果你在方法中的 this 指向不对的话, 那么当前组件里面的state, props你都无法使用的 这样写的目的是确保handl">
+<meta property="og:type" content="article">
+<meta property="og:title" content=".bind(this)">
+<meta property="og:url" content="http://yoursite.com/2019/01/20/bind-this/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="this.handleClick = this.handleClick.bind(this);作用：1、把原型方法handleClick( )改变为实例方法handleClick( ),并且强制指定这个方法中的this指向当前的实例。 this 是指的当前组件的实例, 如果你在方法中的 this 指向不对的话, 那么当前组件里面的state, props你都无法使用的 这样写的目的是确保handl">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-20T05:13:01.990Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content=".bind(this)">
+<meta name="twitter:description" content="this.handleClick = this.handleClick.bind(this);作用：1、把原型方法handleClick( )改变为实例方法handleClick( ),并且强制指定这个方法中的this指向当前的实例。 this 是指的当前组件的实例, 如果你在方法中的 this 指向不对的话, 那么当前组件里面的state, props你都无法使用的 这样写的目的是确保handl">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,78 +64,57 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/12/19/环境配置/" class="archive-article-date">
-  <time datetime="2018-12-18T16:23:33.000Z" itemprop="datePublished">Dec 19</time>
+        <section id="main"><article id="post-bind-this" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/20/bind-this/" class="article-date">
+  <time datetime="2019-01-20T05:09:45.000Z" itemprop="datePublished">2019-01-20</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/19/环境配置/">环境配置</a>
+    <h1 class="article-title" itemprop="name">
+      .bind(this)
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/12/18/第一天/" class="archive-article-date">
-  <time datetime="2018-12-17T16:55:08.000Z" itemprop="datePublished">Dec 18</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/18/第一天/">新手第一天 - 关于怎么安装环境软件</a>
-    </h1>
-  
+        <h5 id="this-handleClick-this-handleClick-bind-this"><a href="#this-handleClick-this-handleClick-bind-this" class="headerlink" title="this.handleClick = this.handleClick.bind(this);"></a>this.handleClick = this.handleClick.bind(this);</h5><h6 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h6><p>1、把原型方法handleClick( )改变为实例方法handleClick( ),并且强制指定这个方法中的this指向当前的实例。</p>
+<p>this 是指的当前组件的实例, 如果你在方法中的 this 指向不对的话, 那么当前组件里面的state, props你都无法使用的</p>
+<p>这样写的目的是确保handleclick里面的this指向的是当前这个类。</p>
+<p>因为this是在哪调用就指向哪的，你把那个函数当做props传给了子组件，执行就不是发生在当前类了。</p>
+<p>在react中这样写，是为了让子组件在调用这个函数的时候this是指向父组件的。</p>
+<p>若一个函数采用ES6箭头函数方式定义，则不需要使用.bind(this),因为箭头函数中的this指的是上下文中的this。 （函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象）。</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/12/15/hello-world/" class="archive-article-date">
-  <time datetime="2018-12-15T11:30:30.023Z" itemprop="datePublished">Dec 15</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/15/hello-world/">Hello World</a>
-    </h1>
-  
-
-    </header>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/bind-this/" data-id="cjr4g9mjt0000n453w4h52ibd" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/01/20/call-、apply-、bind-的用法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">call()、apply()、bind()的用法</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
