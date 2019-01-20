@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>.push、.unshift、.concat、.Object.Assign | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content=".push、.unshift、.concat、Object.assign1、push()向数组的末尾添加一个或多个元素，并返回新的长度。 a、语法:arrayObject.push(newelement1,newelement2,....,newelementX)可添加多个元素eg: const newData = data.push(event); b、返回值:把指定的值添加到数组后的新长度。">
+<meta property="og:type" content="article">
+<meta property="og:title" content=".push、.unshift、.concat、.Object.Assign">
+<meta property="og:url" content="http://yoursite.com/2019/01/20/push、-unshift、-concat、-Object-Assign/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content=".push、.unshift、.concat、Object.assign1、push()向数组的末尾添加一个或多个元素，并返回新的长度。 a、语法:arrayObject.push(newelement1,newelement2,....,newelementX)可添加多个元素eg: const newData = data.push(event); b、返回值:把指定的值添加到数组后的新长度。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-20T15:50:52.905Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=".push、.unshift、.concat、.Object.Assign">
+<meta name="twitter:description" content=".push、.unshift、.concat、Object.assign1、push()向数组的末尾添加一个或多个元素，并返回新的长度。 a、语法:arrayObject.push(newelement1,newelement2,....,newelementX)可添加多个元素eg: const newData = data.push(event); b、返回值:把指定的值添加到数组后的新长度。">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-push、-unshift、-concat、-Object-Assign" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/20/push、-unshift、-concat、-Object-Assign/" class="article-date">
+  <time datetime="2019-01-20T15:42:00.000Z" itemprop="datePublished">2019-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      .push、.unshift、.concat、.Object.Assign
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="push、-unshift、-concat、Object-assign"><a href="#push、-unshift、-concat、Object-assign" class="headerlink" title=".push、.unshift、.concat、Object.assign"></a>.push、.unshift、.concat、Object.assign</h3><h5 id="1、push"><a href="#1、push" class="headerlink" title="1、push()"></a>1、push()</h5><p>向数组的末尾添加一个或多个元素，并返回新的长度。</p>
+<h6 id="a、语法"><a href="#a、语法" class="headerlink" title="a、语法:"></a>a、语法:</h6><p><code>arrayObject.push(newelement1,newelement2,....,newelementX)</code><br>可添加多个元素<br>eg: const newData = data.push(event);</p>
+<h6 id="b、返回值"><a href="#b、返回值" class="headerlink" title="b、返回值:"></a>b、返回值:</h6><p>把指定的值添加到数组后的新长度。</p>
+<p>另:push() 方法把它的参数顺序添加到 arrayObject 的尾部。它直接修改 arrayObject，而不是创建一个新的数组。<br>push() 方法和 pop() 方法使用数组提供的先进后出栈的功能。</p>
+<h5 id="2、unshift"><a href="#2、unshift" class="headerlink" title="2、unshift("></a>2、unshift(</h5><p>在数组的开头添加一个或多个元素，并返回新的长度。</p>
+<h6 id="a、语法-1"><a href="#a、语法-1" class="headerlink" title="a、语法:"></a>a、语法:</h6><p><code>arrayObject.unshift(newelement1,newelement2,....,newelementX)</code><br>可添加多个元素</p>
+<h6 id="b、返回值-1"><a href="#b、返回值-1" class="headerlink" title="b、返回值:"></a>b、返回值:</h6><p>arrayObject 的新长度。</p>
+<p>另:unshift() 方法不创建新的创建，而是直接修改原有的数组。</p>
+<h5 id="3、concat-用于连接两个或多个数组。"><a href="#3、concat-用于连接两个或多个数组。" class="headerlink" title="3、concat()用于连接两个或多个数组。"></a>3、concat()用于连接两个或多个数组。</h5><p>该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。</p>
+<h6 id="a、语法-2"><a href="#a、语法-2" class="headerlink" title="a、语法:"></a>a、语法:</h6><p><code>arrayObject.concat(arrayX,arrayX,......,arrayX);</code></p>
+<p>arrayX 必需。该参数可以是具体的值，也可以是数组对象。可以是任意多个。</p>
+<h6 id="b、返回值-2"><a href="#b、返回值-2" class="headerlink" title="b、返回值:"></a>b、返回值:</h6><p>返回一个新的数组。</p>
+<p>该数组是通过把所有 arrayX 参数添加到 arrayObject 中生成的。</p>
+<p>如果要进行 concat() 操作的参数是数组，那么添加的是数组中的元素，而不是数组。</p>
+<h5 id="4、Object-assign"><a href="#4、Object-assign" class="headerlink" title="4、Object.assign()"></a>4、Object.assign()</h5>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/push、-unshift、-concat、-Object-Assign/" data-id="cjr5338f80007h453sbnp2rul" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/01/20/get-post-put-delete-patch/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          get, post, put, delete, patch
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/20/React入门篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">React入门篇</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/20/get-post-put-delete-patch/">get, post, put, delete, patch</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/20/push、-unshift、-concat、-Object-Assign/">.push、.unshift、.concat、.Object.Assign</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/20/React入门篇/">React入门篇</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/20/React-super-props/">React - super(props)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/20/微信小程序（一）/">微信小程序（一）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

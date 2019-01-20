@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>微信小程序（一） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="微信小程序（一）1、与两者的区别是， 是一个组件，会在页面上做渲染；不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。1234&amp;lt;block wx:if=&amp;quot;&amp;#123;&amp;#123;true&amp;#125;&amp;#125;&amp;quot;&amp;gt;&amp;lt;view&amp;gt; text &amp;lt;/view&amp;gt;&amp;lt;view&amp;gt; text &amp;lt;/view&amp;gt;&amp;l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序（一）">
+<meta property="og:url" content="http://yoursite.com/2019/01/20/微信小程序（一）/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="微信小程序（一）1、与两者的区别是， 是一个组件，会在页面上做渲染；不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。1234&amp;lt;block wx:if=&amp;quot;&amp;#123;&amp;#123;true&amp;#125;&amp;#125;&amp;quot;&amp;gt;&amp;lt;view&amp;gt; text &amp;lt;/view&amp;gt;&amp;lt;view&amp;gt; text &amp;lt;/view&amp;gt;&amp;l">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-20T15:51:43.211Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信小程序（一）">
+<meta name="twitter:description" content="微信小程序（一）1、与两者的区别是， 是一个组件，会在页面上做渲染；不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。1234&amp;lt;block wx:if=&amp;quot;&amp;#123;&amp;#123;true&amp;#125;&amp;#125;&amp;quot;&amp;gt;&amp;lt;view&amp;gt; text &amp;lt;/view&amp;gt;&amp;lt;view&amp;gt; text &amp;lt;/view&amp;gt;&amp;l">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-微信小程序（一）" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/20/微信小程序（一）/" class="article-date">
+  <time datetime="2019-01-20T15:20:28.000Z" itemprop="datePublished">2019-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      微信小程序（一）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="微信小程序（一）"><a href="#微信小程序（一）" class="headerlink" title="微信小程序（一）"></a>微信小程序（一）</h2><h5 id="1、与两者的区别是，-是一个组件，会在页面上做渲染；不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。"><a href="#1、与两者的区别是，-是一个组件，会在页面上做渲染；不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。" class="headerlink" title="1、与两者的区别是， 是一个组件，会在页面上做渲染；不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。"></a>1、<view>与<block>两者的区别是，<view> 是一个组件，会在页面上做渲染；<block>不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。</block></view></block></view></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;block wx:if=&quot;&#123;&#123;true&#125;&#125;&quot;&gt;</span><br><span class="line">&lt;view&gt; text &lt;/view&gt;</span><br><span class="line">&lt;view&gt; text &lt;/view&gt;</span><br><span class="line">&lt;/block&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="2、elif（相当于else-if）"><a href="#2、elif（相当于else-if）" class="headerlink" title="2、elif（相当于else if）"></a>2、elif（相当于else if）</h5><p><code>if...elif...else...</code></p>
+<h5 id="3、wx-for、wx-for-item、wx-for-indexwx-for等价与wx-for-items，是循环数组用的；"><a href="#3、wx-for、wx-for-item、wx-for-indexwx-for等价与wx-for-items，是循环数组用的；" class="headerlink" title="3、wx:for、wx:for-item、wx:for-indexwx:for等价与wx:for-items，是循环数组用的；"></a>3、wx:for、wx:for-item、wx:for-indexwx:for等价与wx:for-items，是循环数组用的；</h5><p>使用 wx:for-item 可以指定数组当前元素的变量名，<br>使用 wx:for-index 可以指定数组当前下标的变量名：默认 index<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:for =&quot;&#123;&#123;item.childlist&#125;&#125;&quot; wx:for-item=&quot;items&gt;</span><br><span class="line">&#123;&#123;item.id&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:for=&quot;&#123;&#123;array&#125;&#125;&quot; wx:for-index=&quot;idx&quot; wx:for-item=&quot;itemName&quot;&gt;</span><br><span class="line">&#123;&#123;idx&#125;&#125;: &#123;&#123;itemName.message&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="4、wx-key"><a href="#4、wx-key" class="headerlink" title="4、wx:key"></a>4、wx:key</h5><p>如果列表中项目位置会动态改变或者可能会有新的项目会加入列表中<br>需要标识这个项目在列表的位置：<br>则可以选用ltem的某个唯一的属性作为Key<br>或者用 *this 关键字代表 for循环的item本身，这种表示需要item本身就是 一个唯一的字符串或者数字。<br>当数据改变触发渲染层重新渲染的时候，会校正带有 key 的组件，框架会确保他们被重新排序，而不是重新创建，以确保使组件保持自身的状态，并且提高列表渲染时的效率。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/微信小程序（一）/" data-id="cjr5338fo000ah453gf9niqtc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/01/20/React-super-props/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          React - super(props)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/20/bind-this/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">.bind(this)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/20/get-post-put-delete-patch/">get, post, put, delete, patch</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/20/push、-unshift、-concat、-Object-Assign/">.push、.unshift、.concat、.Object.Assign</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/20/React入门篇/">React入门篇</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/20/React-super-props/">React - super(props)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/20/微信小程序（一）/">微信小程序（一）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
