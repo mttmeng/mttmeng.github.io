@@ -62,6 +62,227 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-bind-this" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/20/bind-this/" class="article-date">
+  <time datetime="2019-01-20T05:09:45.000Z" itemprop="datePublished">2019-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/20/bind-this/">.bind(this)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="this-handleClick-this-handleClick-bind-this"><a href="#this-handleClick-this-handleClick-bind-this" class="headerlink" title="this.handleClick = this.handleClick.bind(this);"></a>this.handleClick = this.handleClick.bind(this);</h5><h6 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h6><p>1、把原型方法handleClick( )改变为实例方法handleClick( ),并且强制指定这个方法中的this指向当前的实例。</p>
+<p>this 是指的当前组件的实例, 如果你在方法中的 this 指向不对的话, 那么当前组件里面的state, props你都无法使用的</p>
+<p>这样写的目的是确保handleclick里面的this指向的是当前这个类。</p>
+<p>因为this是在哪调用就指向哪的，你把那个函数当做props传给了子组件，执行就不是发生在当前类了。</p>
+<p>在react中这样写，是为了让子组件在调用这个函数的时候this是指向父组件的。</p>
+<p>若一个函数采用ES6箭头函数方式定义，则不需要使用.bind(this),因为箭头函数中的this指的是上下文中的this。 （函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象）。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/bind-this/" data-id="cjryqmkmw0003tk53s129qxws" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-call-、apply-、bind-的用法" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/20/call-、apply-、bind-的用法/" class="article-date">
+  <time datetime="2019-01-20T04:55:11.000Z" itemprop="datePublished">2019-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/20/call-、apply-、bind-的用法/">call()、apply()、bind()的用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="JavaScript-中-call-、apply-、bind-的用法"><a href="#JavaScript-中-call-、apply-、bind-的用法" class="headerlink" title="JavaScript 中 call()、apply()、bind() 的用法"></a>JavaScript 中 call()、apply()、bind() 的用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">obj.myFun.call(db,&apos;成都&apos;,&apos;上海&apos;)；　　　　 // 德玛 年龄 99 来自 成都去往上海</span><br><span class="line">obj.myFun.apply(db,[&apos;成都&apos;,&apos;上海&apos;]);      // 德玛 年龄 99 来自 成都去往上海</span><br><span class="line">obj.myFun.bind(db,&apos;成都&apos;,&apos;上海&apos;)();       // 德玛 年龄 99 来自 成都去往上海</span><br><span class="line">obj.myFun.bind(db,[&apos;成都&apos;,&apos;上海&apos;])();　　 // 德玛 年龄 99 来自 成都, 上海去往 undefined</span><br></pre></td></tr></table></figure>
+<h6 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h6><p>call 、bind 、 apply 这三个函数的第一个参数都是 this 的指向对象；<br>第二个参数差别是：<br>1、call 的参数是直接放进去的，第二第三第 n 个参数全都用逗号分隔，直接放到后面 obj.myFun.call(db,’成都’, … ,’string’ )。</p>
+<p>2、apply 的所有参数都必须放在一个数组里面传进去 obj.myFun.apply(db,[‘成都’, …, ‘string’ ])。</p>
+<p>3、bind 除了返回是函数以外，它 的参数和 call 一样。<br>当然，三者的参数不限定是 string 类型，允许是各种类型，包括函数 、 object 等等！</p>
+<p>4、bind 是返回对应 函数，便于稍后调用；apply 、call 则是立即调用 。</p>
+<h6 id="bind-方法"><a href="#bind-方法" class="headerlink" title="bind() 方法"></a>bind() 方法</h6><p>MDN 的解释是：bind() 方法会创建一个 新函数，称为绑定函数，当调用这个绑定函数时，绑定函数会以创建它时传入 bind() 方法的第一个参数 作为 this，传入 bind() 方法的 第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数。</p>
+<p>在 Javascript 中，多次 bind() 是无效的。更深层次的原因，bind() 的实现，相当于使用函数在内部包了一个 call / apply ，第二次 bind() 相当于再包住第一次 bind() ,故第二次以后的 bind 是无法生效的。</p>
+<p>bind方法生成了一个新的函数，称为绑定函数，传入bind方法的第一个參数作为这个绑定函数的this对象，传入bind的第二个參数连同后面调用绑定函数时传入的參数依照先后顺序（传入bind的在前）构成绑定函数的參数。</p>
+<p>.bind()创建了一个函数，当这个函数在被调用的时候。它的 this 关键词会被设置成被传入的值（这里指调用bind()时传入的參数）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/call-、apply-、bind-的用法/" data-id="cjryqmkno0004tk53jfo69irs" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-react - 列表和key" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/06/react - 列表和key/" class="article-date">
+  <time datetime="2019-01-06T13:39:21.000Z" itemprop="datePublished">2019-01-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/06/react - 列表和key/">react - 列表和key</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="react-列表和key"><a href="#react-列表和key" class="headerlink" title="react - 列表和key"></a>react - 列表和key</h1><h6 id="1、列表"><a href="#1、列表" class="headerlink" title="1、列表"></a>1、列表</h6><p>使用 JavaScript 的 map() 方法来创建列表。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const numbers = [1, 2, 3, 4, 5];</span><br><span class="line">const listItems = numbers.map((numbers) =&gt;</span><br><span class="line">  &lt;li&gt;&#123;numbers&#125;&lt;/li&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>但这样写Chrome控制台会提示我们，应该给列表中的每个元素添加一个名为key的属性。</p>
+<h6 id="2、key"><a href="#2、key" class="headerlink" title="2、key"></a>2、key</h6><p>   react使用key属性来标记列表中的每个元素，当列表发生变化时，react可以通过key知道哪些元素发生了变化，从而只重新渲染发生变化的元素，提高渲染效率。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const numbers = [1, 2, 3, 4, 5];</span><br><span class="line">const listItems = numbers.map((number) =&gt;</span><br><span class="line">  &lt;li key=&#123;number.toString()&#125;&gt;</span><br><span class="line">    &#123;number&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>  一个元素的 key 最好是这个元素在列表中拥有的一个独一无二的字符串。通常，我们使用来自数据的 id 作为元素的 key<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const todoItems = todos.map((todo) =&gt;</span><br><span class="line">  &lt;li key=&#123;todo.id&#125;&gt;</span><br><span class="line">    &#123;todo.text&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>当元素没有确定的 id 时，你可以使用他的序列号索引 index 作为 key。<br>但并不推荐使用索引作为key，因为一旦列表中的数据发生重排，数据的索引也会发生改变，不利于react的渲染。</p>
+<h6 id="3、问题"><a href="#3、问题" class="headerlink" title="3、问题"></a>3、问题</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li key=&#123;number.toString()&#125;&gt;</span><br></pre></td></tr></table></figure>
+<p>.toString()的作用</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/06/react - 列表和key/" data-id="cjryqmksi000btk532q8bq2ww" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-高度自适应水平垂直居中" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/06/高度自适应水平垂直居中/" class="article-date">
+  <time datetime="2019-01-06T12:35:47.000Z" itemprop="datePublished">2019-01-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/06/高度自适应水平垂直居中/">div高度自适应水平垂直居中</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="div高度自适应水平垂直居中"><a href="#div高度自适应水平垂直居中" class="headerlink" title="div高度自适应水平垂直居中"></a>div高度自适应水平垂直居中</h1><h5 id="方法一：子元素绝对定位，距离顶部50-，左边50-，然后使用CSS3的transform：translate（-50-；-50-）；"><a href="#方法一：子元素绝对定位，距离顶部50-，左边50-，然后使用CSS3的transform：translate（-50-；-50-）；" class="headerlink" title="方法一：子元素绝对定位，距离顶部50%，左边50%，然后使用CSS3的transform：translate（-50%；-50%）；"></a>方法一：子元素绝对定位，距离顶部50%，左边50%，然后使用CSS3的transform：translate（-50%；-50%）；</h5><p>缺点：不支持IF9以下不支持transform属性的浏览器</p>
+<p>HTML代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;box&quot;&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>CSS代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">	position: relative;</span><br><span class="line">	width: 600px;</span><br><span class="line">	height: 600px;</span><br><span class="line">    background-color: yellow;</span><br><span class="line">&#125;</span><br><span class="line">.box .content &#123;</span><br><span class="line">	width: 200px;</span><br><span class="line">	min-height: 200px;</span><br><span class="line">    background: red;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    left: 50%; /*父级的50%*/</span><br><span class="line">    transform: translate(-50%, -50%); /*父级的50%*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="方法二：使用css3-flex布局-然后使用justify-content-center-align-items-center"><a href="#方法二：使用css3-flex布局-然后使用justify-content-center-align-items-center" class="headerlink" title="方法二：使用css3 flex布局,然后使用justify-content:center; align-items:center;"></a>方法二：使用css3 flex布局,然后使用justify-content:center; align-items:center;</h5><p>缺点：兼容不好</p>
+<p>HTML代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;box&quot;&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>CSS代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">	width: 600px;</span><br><span class="line">	height: 600px;</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: center;</span><br><span class="line">    align-items: center;</span><br><span class="line">    background-color: yellow;</span><br><span class="line">&#125;</span><br><span class="line">.box .content&#123;</span><br><span class="line">	width: 200px;</span><br><span class="line">	min-height: 200px;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<h5 id="方法三：使用css-grid布局-使用align-self-center-justify-self-center"><a href="#方法三：使用css-grid布局-使用align-self-center-justify-self-center" class="headerlink" title="方法三：使用css grid布局,使用align-self:center;   justify-self:center;"></a>方法三：使用css grid布局,使用align-self:center;   justify-self:center;</h5><p>缺点：代码量也很少，但兼容性不如flex。</p>
+<p>HTML代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;box&quot;&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>CSS代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">    width: 600px;</span><br><span class="line">    height: 600px;</span><br><span class="line">	display: grid;</span><br><span class="line">	background-color:yellow;</span><br><span class="line">&#125;</span><br><span class="line">.box .content&#123;</span><br><span class="line">	width:200px;</span><br><span class="line">	min-height:200px;</span><br><span class="line">	align-self:center;</span><br><span class="line">    justify-self:center;</span><br><span class="line">	background-color:red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<h5 id="方法四：使用一个空标签span设置他的vertical-align基准线为中间，并且让他display-inline-block，宽度为0"><a href="#方法四：使用一个空标签span设置他的vertical-align基准线为中间，并且让他display-inline-block，宽度为0" class="headerlink" title="方法四：使用一个空标签span设置他的vertical-align基准线为中间，并且让他display:inline-block，宽度为0"></a>方法四：使用一个空标签span设置他的vertical-align基准线为中间，并且让他display:inline-block，宽度为0</h5><p>缺点：多了一个没用的空标签，display:inline-block, 在IE 6 7是不支持的(添加上：_zoom1;*display:inline)。也可以使用伪元素来代替span标签</p>
+<p>HTML代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;box&quot;&gt;</span><br><span class="line">&lt;span&gt;&lt;/span&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>CSS代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">	width: 600px;</span><br><span class="line">	height: 600px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    background: yellow;</span><br><span class="line">&#125;</span><br><span class="line">.box span&#123;</span><br><span class="line">   height: 100%;</span><br><span class="line">   display: inline-block;</span><br><span class="line">   vertical-align: middle;</span><br><span class="line">&#125;</span><br><span class="line">.box .content&#123;</span><br><span class="line">	width: 200px;</span><br><span class="line">	min-height: 200px;</span><br><span class="line">    display: inline-block;</span><br><span class="line">	vertical-align: middle;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="方法五：显示设置父元素为：table，子元素为：cell-table，这样就可以使用vertical-align-center，实现水平居中"><a href="#方法五：显示设置父元素为：table，子元素为：cell-table，这样就可以使用vertical-align-center，实现水平居中" class="headerlink" title="方法五：显示设置父元素为：table，子元素为：cell-table，这样就可以使用vertical-align: center，实现水平居中"></a>方法五：显示设置父元素为：table，子元素为：cell-table，这样就可以使用vertical-align: center，实现水平居中</h5><p>缺点：IE8以下不支持</p>
+<p>HTML代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;box&quot;&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>CSS代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">    width: 600px;</span><br><span class="line">    height: 600px;</span><br><span class="line">	display: table-cell;</span><br><span class="line">    vertical-align: middle;</span><br><span class="line">    background-color: yellow;</span><br><span class="line">&#125;</span><br><span class="line">.box .content&#123;</span><br><span class="line">	width: 200px;</span><br><span class="line">	min-height: 200px;</span><br><span class="line">	margin: 0 auto;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="方法六：主要利用绝对定位和相对定位实现。"><a href="#方法六：主要利用绝对定位和相对定位实现。" class="headerlink" title="方法六：主要利用绝对定位和相对定位实现。"></a>方法六：主要利用绝对定位和相对定位实现。</h5><p>父div相对定位。子标签img绝对定位，并且设置top：0；bottom：0；left：0；right：0；和margin：auto，缺一不可。<br>缺点：使用子div的max-height来限制子div的高度。<br>html代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;box&quot;&gt;</span><br><span class="line">&lt;div class=&quot;content&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>CSS代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">	width: 600px;</span><br><span class="line">	height: 600px;</span><br><span class="line">    position: relative;</span><br><span class="line">    background-color: yellow;</span><br><span class="line">&#125;</span><br><span class="line">.box .content&#123;</span><br><span class="line">	width: 200px;</span><br><span class="line">	max-height: 400px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0px;</span><br><span class="line">    bottom: 0px;</span><br><span class="line">    left: 0px;</span><br><span class="line">    right: 0px;</span><br><span class="line">    margin: auto;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/06/高度自适应水平垂直居中/" data-id="cjryqmkvg000itk53xskh1yj2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-弹框遮罩的两种实现方式" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/06/弹框遮罩的两种实现方式/" class="article-date">
+  <time datetime="2019-01-06T12:32:36.000Z" itemprop="datePublished">2019-01-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/06/弹框遮罩的两种实现方式/">弹框遮罩的两种实现方式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="弹框遮罩的两种实现方式"><a href="#弹框遮罩的两种实现方式" class="headerlink" title="弹框遮罩的两种实现方式"></a>弹框遮罩的两种实现方式</h2><h6 id="第一种方法：空div作为遮罩"><a href="#第一种方法：空div作为遮罩" class="headerlink" title="第一种方法：空div作为遮罩"></a>第一种方法：空div作为遮罩</h6><p>优点：可以方便的用一个开关控制遮罩的有无。<br>缺点：react组件中不支持空标签，故用这种方法会报错。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;shadow&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;alert&quot;&gt;弹出框内容&lt;div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.shadow &#123;</span><br><span class="line">    position: fixed;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    background: #000;</span><br><span class="line">    opacity: 0.3;</span><br><span class="line">    display: none;</span><br><span class="line">&#125;</span><br><span class="line">.alert &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<h6 id="第二种方法：将弹框放在遮罩div中"><a href="#第二种方法：将弹框放在遮罩div中" class="headerlink" title="第二种方法：将弹框放在遮罩div中"></a>第二种方法：将弹框放在遮罩div中</h6><p>优点：在适用于其他框架的同时，也能够适用于react;<br>可以通过shadow的opacity来控制遮罩样式的有无（如果不想要遮罩样式，可将遮罩的opacity改为0）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;shadow&quot;&gt;</span><br><span class="line">&lt;div class=&quot;alert&quot;&gt;弹出框内容&lt;div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.shadow &#123;</span><br><span class="line">    position: fixed;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    background: rgba(0, 0, 0, 0.2);</span><br><span class="line">    display: none;</span><br><span class="line">&#125;</span><br><span class="line">.alert &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/06/弹框遮罩的两种实现方式/" data-id="cjryqmktp000etk53h4ytw5m6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Mac快捷键" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/01/Mac快捷键/" class="article-date">
@@ -92,7 +313,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/01/Mac快捷键/" data-id="cjr53acw10001d053bbmfxiyw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/01/Mac快捷键/" data-id="cjryqmkjh0000tk531j4znux4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -124,8 +345,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h1><p>$ ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a><br>(# 常见包的安装请参考官方教程 <a href="https://brew.sh/" target="_blank" rel="noopener">https://brew.sh/</a>)<br>$ brew install coreutils</p>
-<h1 id="安装Node-js-6"><a href="#安装Node-js-6" class="headerlink" title="安装Node.js 6"></a>安装Node.js 6</h1><p>$ brew install node@6<br>$ ln -s /usr/local/Cellar/node@6/6.x.x/bin/node /usr/local/bin<br>$ npm install npm@4 gulp@3 -g</p>
+        <h1 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br><span class="line">(# 常见包的安装请参考官方教程 https://brew.sh/)</span><br><span class="line">$ brew install coreutils</span><br></pre></td></tr></table></figure>
+<h1 id="安装Node-js-6"><a href="#安装Node-js-6" class="headerlink" title="安装Node.js 6"></a>安装Node.js 6</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ brew install node@6</span><br><span class="line">$ ln -s /usr/local/Cellar/node@6/6.x.x/bin/node /usr/local/bin</span><br><span class="line">$ npm install npm@4 gulp@3 -g</span><br></pre></td></tr></table></figure>
 <p>问题：<br>1、 在第一步，如果是第一次运行node@6，需要运行  export PATH=”/usr/local/opt/node@6/bin:$PATH”  添加一些必须文件。<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/1.jpg" alt="Alt"></p>
 <p>2、在第三步不要忽略install之前的npm，否则安装失败，要重新安装。<br>      若加载过多，则存在异常，检查一下npm版本是否正确，重新运行命令行。<br>      以下是正确结果。<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/2.jpg" alt="Alt"></p>
 <h1 id="脚手架"><a href="#脚手架" class="headerlink" title="脚手架"></a>脚手架</h1><p>Seed-cli是公司所用的脚手架，这里我安装create-react-app<br>按这个步骤走下去：</p>
@@ -146,8 +367,7 @@
 <p>启动之后打开的页面：<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/3.jpg" alt="Alt"></p>
 </li>
 </ul>
-<h1 id="安装Intellij-IDEA"><a href="#安装Intellij-IDEA" class="headerlink" title="安装Intellij IDEA"></a>安装Intellij IDEA</h1><p><a href="https://www.jetbrains.com/idea/download/" target="_blank" rel="noopener">https://www.jetbrains.com/idea/download/</a><br>$ brew cask install java<br>$ brew install maven</p>
-<p>$ cd /etc/<br>$ ls<br>$ Sudo vi hosts</p>
+<h1 id="安装Intellij-IDEA"><a href="#安装Intellij-IDEA" class="headerlink" title="安装Intellij IDEA"></a>安装Intellij IDEA</h1><p><a href="https://www.jetbrains.com/idea/download/" target="_blank" rel="noopener">https://www.jetbrains.com/idea/download/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ brew cask install java</span><br><span class="line">$ brew install maven</span><br><span class="line"></span><br><span class="line">$ cd /etc/</span><br><span class="line">$ ls</span><br><span class="line">$ Sudo vi hosts</span><br></pre></td></tr></table></figure></p>
 <p>然后在网上找一个Idea注册码（链接：<a href="http://idea.lanyus.com/" target="_blank" rel="noopener">http://idea.lanyus.com/</a> ），破解IDEA</p>
 <h1 id="安装Tomcat-7-8-72"><a href="#安装Tomcat-7-8-72" class="headerlink" title="安装Tomcat@7.8.72"></a>安装<a href="mailto:Tomcat@7.8.72" target="_blank" rel="noopener">Tomcat@7.8.72</a></h1><p>1、首先到官网下载Tomcat：<a href="https://tomcat.apache.org/download-90.cgi" target="_blank" rel="noopener">https://tomcat.apache.org/download-90.cgi</a><br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/4.jpg" alt="Alt"><br>2、解压tomcat文件,最好把它文件名重命名为”Tomcat”，方便以后查找，最后把它放入/Library(资源库中)<br>(1).点击finder–&gt;用户–&gt;你电脑的名字–&gt;资源库(有的也叫/Library)。<br>(2).有些苹果将library目录隐藏起来了，可以直接点左上角前往，前往文件夹，路径填 /资源库，就进入了资源库了。</p>
 <p>3、用终端直接打开Tomcat<br>(1).进入Tomcat的bin目录下：<br>      输入cd /Library/Tomcat/bin ，回车。(也可以打开Tomcat文件夹，把bin文件夹直接拖拉到终端，但要记得先输入cd+空格)<br>(2).授权bin目录下的所有操作：<br>      输入sudo chmod 755 *.sh，回车<br>(3).输入密码，回车<br>(4).开启Tomcat，输入sudo sh ./startup.sh，回车<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/5.jpg" alt="Alt"><br>4、到浏览器输入网址localhost，若出现了下面的画面就证明成功了<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/6.jpg" alt="Alt"></p>
@@ -156,7 +376,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/19/环境配置/" data-id="cjr53acyn000bd053rtz8pgy1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/19/环境配置/" data-id="cjryqmkuf000gtk538q2lonn6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -210,7 +430,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/18/第一天/" data-id="cjr53acyn000cd053uax1jj9n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/18/第一天/" data-id="cjryqmkuv000htk53s7cc9rp0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -255,7 +475,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/15/hello-world/" data-id="cjr53acxc0006d0539zuddgmz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/15/hello-world/" data-id="cjryqmkq30008tk53gduthafn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -288,7 +508,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
     </div>
   </div>
 
@@ -301,23 +521,23 @@
       <ul>
         
           <li>
-            <a href="/2019/01/20/get-post-put-delete-patch/">get, post, put, delete, patch</a>
+            <a href="/2019/02/10/happy-new-year/">happy new year</a>
           </li>
         
           <li>
-            <a href="/2019/01/20/push、-unshift、-concat、-Object-Assign/">.push、.unshift、.concat、.Object.Assign</a>
+            <a href="/2019/02/10/try-2019/">try-2019</a>
           </li>
         
           <li>
-            <a href="/2019/01/20/React入门篇/">React入门篇</a>
+            <a href="/2019/01/21/react-Table-增删改查/">react - Table 增删改查</a>
           </li>
         
           <li>
-            <a href="/2019/01/20/React-super-props/">React - super(props)</a>
+            <a href="/2019/01/21/propTypes类型检查/">propTypes类型检查</a>
           </li>
         
           <li>
-            <a href="/2019/01/20/微信小程序（一）/">微信小程序（一）</a>
+            <a href="/2019/01/21/findIndex/">findIndex()</a>
           </li>
         
       </ul>

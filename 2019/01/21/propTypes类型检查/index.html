@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>propTypes类型检查 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="propTypes类型检查123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566static propTypes = &amp;#123;// 将属性声明为以下 JS 原生类型optionalArray: PropT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="propTypes类型检查">
+<meta property="og:url" content="http://yoursite.com/2019/01/21/propTypes类型检查/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="propTypes类型检查123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566static propTypes = &amp;#123;// 将属性声明为以下 JS 原生类型optionalArray: PropT">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-10T09:53:23.969Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="propTypes类型检查">
+<meta name="twitter:description" content="propTypes类型检查123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566static propTypes = &amp;#123;// 将属性声明为以下 JS 原生类型optionalArray: PropT">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-propTypes类型检查" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/21/propTypes类型检查/" class="article-date">
+  <time datetime="2019-01-21T15:19:14.000Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      propTypes类型检查
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="propTypes类型检查"><a href="#propTypes类型检查" class="headerlink" title="propTypes类型检查"></a>propTypes类型检查</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">static propTypes = &#123;</span><br><span class="line">// 将属性声明为以下 JS 原生类型</span><br><span class="line">optionalArray: PropTypes.array,</span><br><span class="line">optionalBool: PropTypes.bool,</span><br><span class="line">optionalFunc: PropTypes.func,</span><br><span class="line">optionalNumber: PropTypes.number,</span><br><span class="line">optionalObject: PropTypes.object,</span><br><span class="line">optionalString: PropTypes.string,</span><br><span class="line">optionalSymbol: PropTypes.symbol,</span><br><span class="line"></span><br><span class="line">// 任何可被渲染的元素（包括数字、字符串、子元素或数组）。optionalNode: PropTypes.node,</span><br><span class="line"></span><br><span class="line">// 一个 React 元素</span><br><span class="line">optionalElement: PropTypes.element,</span><br><span class="line"></span><br><span class="line">// 声明属性为某个类的实例，这里使用 JS 的</span><br><span class="line">// instanceof 操作符实现。</span><br><span class="line">optionalMessage: PropTypes.instanceOf(Message),</span><br><span class="line"></span><br><span class="line">// 你也可以限制你的属性值是某个特定值之一</span><br><span class="line">optionalEnum: PropTypes.oneOf([&apos;News&apos;, &apos;Photos&apos;]),</span><br><span class="line"></span><br><span class="line">// 限制它为列举类型之一的对象optionalUnion: PropTypes.oneOfType([</span><br><span class="line">PropTypes.string,</span><br><span class="line">PropTypes.number,</span><br><span class="line">PropTypes.instanceOf(Message)</span><br><span class="line">]),</span><br><span class="line"></span><br><span class="line">// 一个指定元素类型的数组</span><br><span class="line">optionalArrayOf: PropTypes.arrayOf(PropTypes.number),</span><br><span class="line"></span><br><span class="line">// 一个指定类型的对象</span><br><span class="line">optionalObjectOf: PropTypes.objectOf(PropTypes.number),</span><br><span class="line"></span><br><span class="line">// 一个指定属性及其类型的对象</span><br><span class="line">optionalObjectWithShape: PropTypes.shape(&#123;</span><br><span class="line">color: PropTypes.string,</span><br><span class="line">fontSize: PropTypes.number</span><br><span class="line">&#125;),</span><br><span class="line"></span><br><span class="line">// 你也可以在任何 PropTypes 属性后面加上 `isRequired`</span><br><span class="line">// 后缀，这样如果这个属性父组件没有提供时，会打印警告信息requiredFunc: PropTypes.func.isRequired,</span><br><span class="line"></span><br><span class="line">// 任意类型的数据</span><br><span class="line">requiredAny: PropTypes.any.isRequired,</span><br><span class="line"></span><br><span class="line">// 你也可以指定一个自定义验证器。它应该在验证失败时返回</span><br><span class="line">// 一个 Error 对象而不是 `console.warn` 或抛出异常。</span><br><span class="line">// 不过在 `oneOfType` 中它不起作用。</span><br><span class="line">customProp: function(props, propName, componentName) &#123;</span><br><span class="line">if (!/matchme/.test(props[propName])) &#123;</span><br><span class="line">return new Error(</span><br><span class="line">&apos;Invalid prop `&apos; + propName + &apos;` supplied to&apos; +&apos; `&apos; + componentName + &apos;`. Validation failed.&apos;);</span><br><span class="line">&#125;&#125;,</span><br><span class="line"></span><br><span class="line">// 不过你可以提供一个自定义的 `arrayOf` 或 `objectOf`</span><br><span class="line">// 验证器，它应该在验证失败时返回一个 Error 对象。 它被用</span><br><span class="line">// 于验证数组或对象的每个值。验证器前两个参数的第一个是数组</span><br><span class="line">// 或对象本身，第二个是它们对应的键。</span><br><span class="line">customArrayProp: PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) &#123;</span><br><span class="line">if (!/matchme/.test(propValue[key])) &#123;</span><br><span class="line">return new Error(</span><br><span class="line">&apos;Invalid prop `&apos; + propFullName + &apos;` supplied to&apos; +&apos; `&apos; + componentName + &apos;`. Validation failed.&apos;);</span><br><span class="line">&#125;&#125;</span><br><span class="line">)&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="限制单个元素"><a href="#限制单个元素" class="headerlink" title="限制单个元素"></a>限制单个元素</h4><p>通过PropTypes.element你可以指定只能有一个子元素被作为children传递给一个组件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import PropTypes from &apos;prop-types&apos;;</span><br><span class="line">class MyComponent extends React.Component &#123;</span><br><span class="line">render() &#123;</span><br><span class="line">// This must be exactly one element or it will warn.</span><br><span class="line">const children = this.props.children;</span><br><span class="line">return (</span><br><span class="line">&lt;div&gt;</span><br><span class="line">&#123;children&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">);</span><br><span class="line">&#125;&#125;</span><br><span class="line"></span><br><span class="line">MyComponent.propTypes = &#123;</span><br><span class="line">children: PropTypes.element.isRequired&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="defaultProps"><a href="#defaultProps" class="headerlink" title="defaultProps"></a>defaultProps</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">static defaultProps = &#123;</span><br><span class="line">name: &apos;&apos;,</span><br><span class="line">title: &apos;&apos;,</span><br><span class="line">content: &apos;&apos;,</span><br><span class="line">types: [],</span><br><span class="line">maskClosable: false,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/21/propTypes类型检查/" data-id="cjryqmkqp0009tk53qvjnz5st" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/01/21/react-Table-增删改查/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          react - Table 增删改查
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/21/findIndex/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">findIndex()</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/10/happy-new-year/">happy new year</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/10/try-2019/">try-2019</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/21/react-Table-增删改查/">react - Table 增删改查</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/21/propTypes类型检查/">propTypes类型检查</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/21/findIndex/">findIndex()</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
