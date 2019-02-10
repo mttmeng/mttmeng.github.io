@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>setState问题 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="state：它是组件的”私有属性（或者是局部属性），由组件本身完全控制。 setState：1、不要直接修改 state(状态)1this.state.comment = &amp;apos;Hello&amp;apos;; 2、state更新可能是异步的 React 为了优化性能，有可能会将多个 setState() 调用合并为一次更新。因为this.props和this.state 可能是异步更新的，所以不能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="setState问题">
+<meta property="og:url" content="http://yoursite.com/2019/02/10/setState问题/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="state：它是组件的”私有属性（或者是局部属性），由组件本身完全控制。 setState：1、不要直接修改 state(状态)1this.state.comment = &amp;apos;Hello&amp;apos;; 2、state更新可能是异步的 React 为了优化性能，有可能会将多个 setState() 调用合并为一次更新。因为this.props和this.state 可能是异步更新的，所以不能">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-10T11:00:47.242Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="setState问题">
+<meta name="twitter:description" content="state：它是组件的”私有属性（或者是局部属性），由组件本身完全控制。 setState：1、不要直接修改 state(状态)1this.state.comment = &amp;apos;Hello&amp;apos;; 2、state更新可能是异步的 React 为了优化性能，有可能会将多个 setState() 调用合并为一次更新。因为this.props和this.state 可能是异步更新的，所以不能">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-setState问题" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/10/setState问题/" class="article-date">
+  <time datetime="2019-02-10T10:52:33.000Z" itemprop="datePublished">2019-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      setState问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="state："><a href="#state：" class="headerlink" title="state："></a>state：</h5><p>它是组件的”私有属性（或者是局部属性），由组件本身完全控制。</p>
+<h6 id="setState："><a href="#setState：" class="headerlink" title="setState："></a>setState：</h6><p>1、不要直接修改 state(状态)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.state.comment = &apos;Hello&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>2、state更新可能是异步的</p>
+<p>React 为了优化性能，有可能会将多个 setState() 调用合并为一次更新。<br>因为this.props和this.state 可能是异步更新的，所以不能依赖他们的值计算下一个state(状态)。<br>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.setState(&#123;</span><br><span class="line">  counter: this.state.counter + this.props.increment,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>如果有这种需求，可以这样写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">this.setState((prevState, props) =&gt; (&#123;</span><br><span class="line">  counter: prevState.counter + props.increment&#125;));</span><br></pre></td></tr></table></figure></p>
+<p>第一个参数为前一个状态，第二个参数为应用更新时的 props</p>
+<p>3、state(状态)更新会被合并</p>
+<p>当你调用 setState()， React 将合并你提供的对象到当前的状态中。所以当State是一个多键值的结构时，可以单独更新其中的一个，此时会进行”差分”更新，不会影响其他的属性值。</p>
+<h5 id="setState-的异步更新。"><a href="#setState-的异步更新。" class="headerlink" title="setState()的异步更新。"></a>setState()的异步更新。</h5><p>1、执行setState()之后干了什么setState()方法通过一个队列机制实现state更新，当执行setState()的时候，会将需要更新的state合并之后放入状态队列，而不会立即更新this.state(可以和浏览器的事件队列类比)。如果我们不使用setState而是使用this.state.key来修改，将不会触发组件的re-render。如果将this.state赋值给一个新的对象引用，那么其他不在对象上的state将不会被放入状态队列中，当下次调用setState()并对状态队列进行合并时，直接造成了state丢失。</p>
+<p>2、setState()可以接受一个函数作为参数？<br>setState() 不仅能够接受一个对象作为参数，还能够接受一个函数作为参数。函数的参数即为 state 的前一个状态以及 props。</p>
+<p>3、执行setState()后能拿到最新的state值吗？</p>
+<p>4、由 React 控制的事件处理过程 setState 不会同步更新 this.state！<br>也就是说，在 React 控制之外的情况， setState 会同步更新 this.state！<br>但大部份的使用情况下，我们都是使用了 React 库中的表单组件，例如 select、input、button 等等，它们都是 React 库中人造的组件与事件，是处于 React 库的控制之下，比如组件原色 onClick 都是经过 React 包装。在这个情况下，setState 就会以异步的方式执行。</p>
+<h6 id="我这次的问题"><a href="#我这次的问题" class="headerlink" title="我这次的问题"></a>我这次的问题</h6><p>在写edit功能时，我遇到一个问题，在setState中直接将form的值赋给currentData，会出现错误，form值并未能成功立即赋给currentData。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const state = this.state;</span><br><span class="line">  this.setState(&#123;</span><br><span class="line">    currentData: form,</span><br><span class="line">    editVisible: !this.state.editVisible,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>后来，我使用这种写法，成功将form的值赋给currentData，但在今天，我又试了第一种方法，发现又没有问题了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const state = this.state;</span><br><span class="line">  state.currentData = form;</span><br><span class="line">  state.editVisible = !this.state.editVisible;</span><br><span class="line">  this.setState(&#123;</span><br><span class="line">    state,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/10/setState问题/" data-id="cjrysyeq7000hj053zevfg2bc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/02/10/ESLint/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ESLint
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/02/10/antd-Popover/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">antd - Popover</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/10/ESLint/">ESLint</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/10/setState问题/">setState问题</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/10/antd-Popover/">antd - Popover</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/10/antd-Form-提交按钮的两种方式/">antd - Form 提交按钮的两种方式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/10/Map和forEach/">Map和forEach</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

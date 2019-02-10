@@ -5,19 +5,19 @@
   
 
   
-  <title>Hello World | Hexo</title>
+  <title>Map和forEach | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="Map和forEach都属于数组Array的方法，用于遍历数组，高级浏览器支持。 区别Map有返回值，会返回数组的每一项，但不改变原数组，相当于返回原数组的一个修改过的副本；而 forEach 没有返回值，只是遍历数组。从结构和参数形式上看，map方法和forEach方法一模一样，但： forEach方法调用数组的每一个元素，并将元素传递给回调函数1array.forEach(function(c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/12/15/hello-world/index.html">
+<meta property="og:title" content="Map和forEach">
+<meta property="og:url" content="http://yoursite.com/2019/02/10/Map和forEach/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Map和forEach都属于数组Array的方法，用于遍历数组，高级浏览器支持。 区别Map有返回值，会返回数组的每一项，但不改变原数组，相当于返回原数组的一个修改过的副本；而 forEach 没有返回值，只是遍历数组。从结构和参数形式上看，map方法和forEach方法一模一样，但： forEach方法调用数组的每一个元素，并将元素传递给回调函数1array.forEach(function(c">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-15T11:30:30.027Z">
+<meta property="og:updated_time" content="2019-02-10T10:32:04.126Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Map和forEach">
+<meta name="twitter:description" content="Map和forEach都属于数组Array的方法，用于遍历数组，高级浏览器支持。 区别Map有返回值，会返回数组的每一项，但不改变原数组，相当于返回原数组的一个修改过的副本；而 forEach 没有返回值，只是遍历数组。从结构和参数形式上看，map方法和forEach方法一模一样，但： forEach方法调用数组的每一个元素，并将元素传递给回调函数1array.forEach(function(c">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-Map和forEach" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/12/15/hello-world/" class="article-date">
-  <time datetime="2018-12-15T11:30:30.023Z" itemprop="datePublished">2018-12-15</time>
+    <a href="/2019/02/10/Map和forEach/" class="article-date">
+  <time datetime="2019-02-10T10:16:07.000Z" itemprop="datePublished">2019-02-10</time>
 </a>
     
   </div>
@@ -78,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Map和forEach
     </h1>
   
 
@@ -86,20 +86,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>Map和forEach都属于数组Array的方法，用于遍历数组，高级浏览器支持。</p>
+<h6 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h6><p>Map有返回值，会返回数组的每一项，但不改变原数组，相当于返回原数组的一个修改过的副本；<br>而 forEach 没有返回值，只是遍历数组。<br>从结构和参数形式上看，map方法和forEach方法一模一样，但：</p>
+<h6 id="forEach方法"><a href="#forEach方法" class="headerlink" title="forEach方法"></a>forEach方法</h6><p>调用数组的每一个元素，并将元素传递给回调函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.forEach(function(currentValue, index, currentArray)&#123; &#125; , thisValue);</span><br></pre></td></tr></table></figure></p>
+<p>currentValue为数组当前item的一个副本，因此改变currentValue不会对原数组产生影响<br>通过currentArray与index改变原数组</p>
+<h6 id="map方法"><a href="#map方法" class="headerlink" title="map方法"></a>map方法</h6><p>返回一个新数组，数组中每一个元素为原数组元素调用回调函数处理后的结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var newArray = array.map(function(currentValue, index, currentArray)&#123;&#125;, thisValue);</span><br></pre></td></tr></table></figure></p>
+<p>不会对原数组产生改变<br>不会对空数组进行检测</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/15/hello-world/" data-id="cjrysyep3000bj0539nyqajpl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/10/Map和forEach/" data-id="cjrysyemr0002j053dsxidprv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -108,15 +105,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/12/18/第一天/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/02/10/antd-Form-提交按钮的两种方式/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          新手第一天 - 关于怎么安装环境软件
+          antd - Form 提交按钮的两种方式
         
       </div>
     </a>
   
+  
+    <a href="/2019/02/10/hexo-template-render-error/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hexo template render error</div>
+    </a>
   
 </nav>
 

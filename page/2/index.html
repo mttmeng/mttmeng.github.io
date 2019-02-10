@@ -62,6 +62,178 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-push、-unshift、-concat、-Object-Assign" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/20/push、-unshift、-concat、-Object-Assign/" class="article-date">
+  <time datetime="2019-01-20T15:42:00.000Z" itemprop="datePublished">2019-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/20/push、-unshift、-concat、-Object-Assign/">.push、.unshift、.concat、.Object.Assign</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="push、-unshift、-concat、Object-assign"><a href="#push、-unshift、-concat、Object-assign" class="headerlink" title=".push、.unshift、.concat、Object.assign"></a>.push、.unshift、.concat、Object.assign</h3><h5 id="1、push"><a href="#1、push" class="headerlink" title="1、push()"></a>1、push()</h5><p>向数组的末尾添加一个或多个元素，并返回新的长度。</p>
+<h6 id="a、语法"><a href="#a、语法" class="headerlink" title="a、语法:"></a>a、语法:</h6><p><code>arrayObject.push(newelement1,newelement2,....,newelementX)</code><br>可添加多个元素<br>eg: const newData = data.push(event);</p>
+<h6 id="b、返回值"><a href="#b、返回值" class="headerlink" title="b、返回值:"></a>b、返回值:</h6><p>把指定的值添加到数组后的新长度。</p>
+<p>另:push() 方法把它的参数顺序添加到 arrayObject 的尾部。它直接修改 arrayObject，而不是创建一个新的数组。<br>push() 方法和 pop() 方法使用数组提供的先进后出栈的功能。</p>
+<h5 id="2、unshift"><a href="#2、unshift" class="headerlink" title="2、unshift()"></a>2、unshift()</h5><p>在数组的开头添加一个或多个元素，并返回新的长度。</p>
+<h6 id="a、语法-1"><a href="#a、语法-1" class="headerlink" title="a、语法:"></a>a、语法:</h6><p><code>arrayObject.unshift(newelement1,newelement2,....,newelementX)</code><br>可添加多个元素</p>
+<h6 id="b、返回值-1"><a href="#b、返回值-1" class="headerlink" title="b、返回值:"></a>b、返回值:</h6><p>arrayObject 的新长度。</p>
+<p>另:unshift() 方法不创建新的创建，而是直接修改原有的数组。</p>
+<h5 id="3、concat-用于连接两个或多个数组。"><a href="#3、concat-用于连接两个或多个数组。" class="headerlink" title="3、concat()用于连接两个或多个数组。"></a>3、concat()用于连接两个或多个数组。</h5><p>该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。</p>
+<h6 id="a、语法-2"><a href="#a、语法-2" class="headerlink" title="a、语法:"></a>a、语法:</h6><p><code>arrayObject.concat(arrayX,arrayX,......,arrayX);</code></p>
+<p>arrayX 必需。该参数可以是具体的值，也可以是数组对象。可以是任意多个。</p>
+<h6 id="b、返回值-2"><a href="#b、返回值-2" class="headerlink" title="b、返回值:"></a>b、返回值:</h6><p>返回一个新的数组。</p>
+<p>该数组是通过把所有 arrayX 参数添加到 arrayObject 中生成的。</p>
+<p>如果要进行 concat() 操作的参数是数组，那么添加的是数组中的元素，而不是数组。</p>
+<h5 id="4、Object-assign"><a href="#4、Object-assign" class="headerlink" title="4、Object.assign()"></a>4、Object.assign()</h5><h6 id="a、作用"><a href="#a、作用" class="headerlink" title="a、作用"></a>a、作用</h6><p>1、合并多个对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var target = &#123; a: 1, b: 1 &#125;;</span><br><span class="line">var source1 = &#123; b: 2, c: 2 &#125;;</span><br><span class="line">var source2 = &#123; c: 3 &#125;;</span><br><span class="line">Object.assign(target, source1, source2);   // &#123;a:1, b:2, c:3&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2、克隆对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enterExperts: Object.assign([], this.demand.enterExperts);</span><br></pre></td></tr></table></figure></p>
+<p>3、更改属性的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">career:&#123;</span><br><span class="line">careerId: 1</span><br><span class="line">entryDate: &quot;2018-12-12&quot;</span><br><span class="line">entryTime: 9959599</span><br><span class="line">quitDate: &quot;2019-01-01&quot;</span><br><span class="line">quitTime: 5156565</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Object.assign(career, &#123;       </span><br><span class="line">       entryDate: career.entryTime ? mydate(phpTs2Date(career.entryTime), &apos;yyyy-mm&apos;) : &apos;至今&apos;,</span><br><span class="line">       quitDate: career.quitTime ? mydate(phpTs2Date(career.quitTime), &apos;yyyy-mm&apos;) : &apos;至今&apos;,            </span><br><span class="line">       &#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/push、-unshift、-concat、-Object-Assign/" data-id="cjrysyepp000ej053blzzskde" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-React入门篇" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/20/React入门篇/" class="article-date">
+  <time datetime="2019-01-20T15:30:39.000Z" itemprop="datePublished">2019-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/20/React入门篇/">React入门篇</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="React（入门篇）"><a href="#React（入门篇）" class="headerlink" title="React（入门篇）"></a>React（入门篇）</h6><p>1、函数调用表达式fromatName<br>2、if语句以及for循环不是JavaScript表达式，不能直接作为表达式写在{}中，但可以先将其赋值给一个变量（变量是一个JavaScript表达式）；</p>
+<h6 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h6><p>1、组件名称必须以大写字母开头<br>2、React元素可以是DOM标签，也可以是用户自定义的组件。<br>3、组件可以在它的输出中引用其它组件，因此我们可以用同一组件来抽象出任意层次的细节。在React应用中，按钮、表单、对话框、整个屏幕的内容等，这些通常都被表示为组件。<br>4、组件的返回值只能有一个根元素。所以在有多条数据的情况下，用一个大的标签包含这多条数据。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/React入门篇/" data-id="cjrysyenc0004j0538u516pg7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-React-super-props" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/20/React-super-props/" class="article-date">
+  <time datetime="2019-01-20T15:29:30.000Z" itemprop="datePublished">2019-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/20/React-super-props/">React - super(props)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="React-super（props）"><a href="#React-super（props）" class="headerlink" title="React - super（props）"></a>React - super（props）</h4><h6 id="super-props"><a href="#super-props" class="headerlink" title="super(props);"></a>super(props);</h6><p>1、调用super的原因：在ES6中，在子类的constructor中必须先调用super才能引用this</p>
+<p>2、super(props)的目的：在constructor中可以使用this.props</p>
+<p>3、Class components should always call the base constructor with props.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/React-super-props/" data-id="cjrysyen00003j053td41y9mq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-微信小程序（一）" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/20/微信小程序（一）/" class="article-date">
+  <time datetime="2019-01-20T15:20:28.000Z" itemprop="datePublished">2019-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/20/微信小程序（一）/">微信小程序（一）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="微信小程序（一）"><a href="#微信小程序（一）" class="headerlink" title="微信小程序（一）"></a>微信小程序（一）</h2><h5 id="1、与两者的区别是，-是一个组件，会在页面上做渲染；不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。"><a href="#1、与两者的区别是，-是一个组件，会在页面上做渲染；不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。" class="headerlink" title="1、与两者的区别是， 是一个组件，会在页面上做渲染；不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。"></a>1、<view>与<block>两者的区别是，<view> 是一个组件，会在页面上做渲染；<block>不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。</block></view></block></view></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;block wx:if=&quot;&#123;&#123;true&#125;&#125;&quot;&gt;</span><br><span class="line">&lt;view&gt; text &lt;/view&gt;</span><br><span class="line">&lt;view&gt; text &lt;/view&gt;</span><br><span class="line">&lt;/block&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="2、elif（相当于else-if）"><a href="#2、elif（相当于else-if）" class="headerlink" title="2、elif（相当于else if）"></a>2、elif（相当于else if）</h5><p><code>if...elif...else...</code></p>
+<h5 id="3、wx-for、wx-for-item、wx-for-indexwx-for等价与wx-for-items，是循环数组用的；"><a href="#3、wx-for、wx-for-item、wx-for-indexwx-for等价与wx-for-items，是循环数组用的；" class="headerlink" title="3、wx:for、wx:for-item、wx:for-indexwx:for等价与wx:for-items，是循环数组用的；"></a>3、wx:for、wx:for-item、wx:for-indexwx:for等价与wx:for-items，是循环数组用的；</h5><p>使用 wx:for-item 可以指定数组当前元素的变量名，<br>使用 wx:for-index 可以指定数组当前下标的变量名：默认 index<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:for =&quot;&#123;&#123;item.childlist&#125;&#125;&quot; wx:for-item=&quot;items&gt;</span><br><span class="line">&#123;&#123;item.id&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:for=&quot;&#123;&#123;array&#125;&#125;&quot; wx:for-index=&quot;idx&quot; wx:for-item=&quot;itemName&quot;&gt;</span><br><span class="line">&#123;&#123;idx&#125;&#125;: &#123;&#123;itemName.message&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="4、wx-key"><a href="#4、wx-key" class="headerlink" title="4、wx:key"></a>4、wx:key</h5><p>如果列表中项目位置会动态改变或者可能会有新的项目会加入列表中<br>需要标识这个项目在列表的位置：<br>则可以选用ltem的某个唯一的属性作为Key<br>或者用 *this 关键字代表 for循环的item本身，这种表示需要item本身就是 一个唯一的字符串或者数字。<br>当数据改变触发渲染层重新渲染的时候，会校正带有 key 的组件，框架会确保他们被重新排序，而不是重新创建，以确保使组件保持自身的状态，并且提高列表渲染时的效率。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/微信小程序（一）/" data-id="cjrysyeqi000jj053dyo4mdvy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-bind-this" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/20/bind-this/" class="article-date">
@@ -94,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/20/bind-this/" data-id="cjryqmkmw0003tk53s129qxws" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/20/bind-this/" data-id="cjrysyeo30007j053m860ncxr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -139,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/20/call-、apply-、bind-的用法/" data-id="cjryqmkno0004tk53jfo69irs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/20/call-、apply-、bind-的用法/" data-id="cjrysyeob0008j053eib7s4ch" class="article-share-link">Share</a>
       
       
     </footer>
@@ -182,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/06/react - 列表和key/" data-id="cjryqmksi000btk532q8bq2ww" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/06/react - 列表和key/" data-id="cjrysyepv000fj053321r3r4a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -235,7 +407,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/06/高度自适应水平垂直居中/" data-id="cjryqmkvg000itk53xskh1yj2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/06/高度自适应水平垂直居中/" data-id="cjrysyeqz000mj05381hi8d5k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -273,7 +445,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/06/弹框遮罩的两种实现方式/" data-id="cjryqmktp000etk53h4ytw5m6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/06/弹框遮罩的两种实现方式/" data-id="cjrysyeqc000ij053azguu08c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -313,169 +485,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/01/Mac快捷键/" data-id="cjryqmkjh0000tk531j4znux4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-环境配置" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/19/环境配置/" class="article-date">
-  <time datetime="2018-12-18T16:23:33.000Z" itemprop="datePublished">2018-12-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/19/环境配置/">环境配置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br><span class="line">(# 常见包的安装请参考官方教程 https://brew.sh/)</span><br><span class="line">$ brew install coreutils</span><br></pre></td></tr></table></figure>
-<h1 id="安装Node-js-6"><a href="#安装Node-js-6" class="headerlink" title="安装Node.js 6"></a>安装Node.js 6</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ brew install node@6</span><br><span class="line">$ ln -s /usr/local/Cellar/node@6/6.x.x/bin/node /usr/local/bin</span><br><span class="line">$ npm install npm@4 gulp@3 -g</span><br></pre></td></tr></table></figure>
-<p>问题：<br>1、 在第一步，如果是第一次运行node@6，需要运行  export PATH=”/usr/local/opt/node@6/bin:$PATH”  添加一些必须文件。<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/1.jpg" alt="Alt"></p>
-<p>2、在第三步不要忽略install之前的npm，否则安装失败，要重新安装。<br>      若加载过多，则存在异常，检查一下npm版本是否正确，重新运行命令行。<br>      以下是正确结果。<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/2.jpg" alt="Alt"></p>
-<h1 id="脚手架"><a href="#脚手架" class="headerlink" title="脚手架"></a>脚手架</h1><p>Seed-cli是公司所用的脚手架，这里我安装create-react-app<br>按这个步骤走下去：</p>
-<ul>
-<li><p>mkdir workspace</p>
-</li>
-<li><p>cd workspace</p>
-</li>
-<li><p>npm install -g create-react-app</p>
-</li>
-<li><p>create-react-app my-app</p>
-<p>使用命令创建应用，myapp为项目名称</p>
-</li>
-<li><p>cd my-app</p>
-<p>进入目录，然后就启动</p>
-</li>
-<li><p>npm start</p>
-<p>启动之后打开的页面：<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/3.jpg" alt="Alt"></p>
-</li>
-</ul>
-<h1 id="安装Intellij-IDEA"><a href="#安装Intellij-IDEA" class="headerlink" title="安装Intellij IDEA"></a>安装Intellij IDEA</h1><p><a href="https://www.jetbrains.com/idea/download/" target="_blank" rel="noopener">https://www.jetbrains.com/idea/download/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ brew cask install java</span><br><span class="line">$ brew install maven</span><br><span class="line"></span><br><span class="line">$ cd /etc/</span><br><span class="line">$ ls</span><br><span class="line">$ Sudo vi hosts</span><br></pre></td></tr></table></figure></p>
-<p>然后在网上找一个Idea注册码（链接：<a href="http://idea.lanyus.com/" target="_blank" rel="noopener">http://idea.lanyus.com/</a> ），破解IDEA</p>
-<h1 id="安装Tomcat-7-8-72"><a href="#安装Tomcat-7-8-72" class="headerlink" title="安装Tomcat@7.8.72"></a>安装<a href="mailto:Tomcat@7.8.72" target="_blank" rel="noopener">Tomcat@7.8.72</a></h1><p>1、首先到官网下载Tomcat：<a href="https://tomcat.apache.org/download-90.cgi" target="_blank" rel="noopener">https://tomcat.apache.org/download-90.cgi</a><br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/4.jpg" alt="Alt"><br>2、解压tomcat文件,最好把它文件名重命名为”Tomcat”，方便以后查找，最后把它放入/Library(资源库中)<br>(1).点击finder–&gt;用户–&gt;你电脑的名字–&gt;资源库(有的也叫/Library)。<br>(2).有些苹果将library目录隐藏起来了，可以直接点左上角前往，前往文件夹，路径填 /资源库，就进入了资源库了。</p>
-<p>3、用终端直接打开Tomcat<br>(1).进入Tomcat的bin目录下：<br>      输入cd /Library/Tomcat/bin ，回车。(也可以打开Tomcat文件夹，把bin文件夹直接拖拉到终端，但要记得先输入cd+空格)<br>(2).授权bin目录下的所有操作：<br>      输入sudo chmod 755 *.sh，回车<br>(3).输入密码，回车<br>(4).开启Tomcat，输入sudo sh ./startup.sh，回车<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/5.jpg" alt="Alt"><br>4、到浏览器输入网址localhost，若出现了下面的画面就证明成功了<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/6.jpg" alt="Alt"></p>
-<h1 id="配置-m2-settings-xml"><a href="#配置-m2-settings-xml" class="headerlink" title="配置~/.m2/settings.xml"></a>配置~/.m2/settings.xml</h1><p>在终端输入命令行：open ~/.m2，将下载下来的settings.xml文件放入子文件夹中。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/19/环境配置/" data-id="cjryqmkuf000gtk538q2lonn6" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-第一天" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/18/第一天/" class="article-date">
-  <time datetime="2018-12-17T16:55:08.000Z" itemprop="datePublished">2018-12-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/18/第一天/">新手第一天 - 关于怎么安装环境软件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="安装Node-js踩过的坑"><a href="#安装Node-js踩过的坑" class="headerlink" title="安装Node.js踩过的坑"></a>安装Node.js踩过的坑</h1><ol>
-<li><p>在用自己的电脑安装Node.js的时候，由于自己账户权限的问题，用.msi安装失败，这是错误信息，同志们如果遇到这种情况，可以往账户权限那考虑；</p>
-<p> <img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/MSI.jpg" alt="Alt"><br>   <img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/MSI失败.jpg" alt="Alt"></p>
-</li>
-<li><p>接下来我用的Node.js压缩包安装成功的。<br>此外，在安装git、node.js的时候不要忘了配置环境变量；<br><img src="https://github.com/Sweet-M/sweet-img/blob/master/pic/环境变量.jpg" alt="Alt"><br><em>在Mac系统上安装node@6时，如果出现提示你未将某些文件导入指定文件夹下时，可以按照提示信息导入该文件</em> </p>
-</li>
-</ol>
-<h1 id="如何安装IntelliJ-IDEA（破解版）"><a href="#如何安装IntelliJ-IDEA（破解版）" class="headerlink" title="如何安装IntelliJ IDEA（破解版）"></a>如何安装IntelliJ IDEA（破解版）</h1><ol>
-<li>今天得到一位大佬的指导，学到了一个安装破解版IDEA的方法，破解码在这里告诉大家，其余步骤待更新。。。<br>链接：<a href="http://idea.lanyus.com/" target="_blank" rel="noopener">http://idea.lanyus.com/</a></li>
-</ol>
-<h1 id="如何在Markdown中引用本地图片"><a href="#如何在Markdown中引用本地图片" class="headerlink" title="如何在Markdown中引用本地图片"></a>如何在Markdown中引用本地图片</h1><p>除了github、博客这两种方式外，还有两外一种简单的方法：</p>
-<ol>
-<li>管理自己的图片：在有道云笔记中新建一个目录/文件夹——我的图片；</li>
-<li>上传图片到有道云笔记上的”我的图片”目录下；</li>
-<li>分享图片，会得到1个文件的分享URL，复制这个URL，在浏览器中打开，会看到图片；</li>
-<li>右击图片 - 复制图片地址。</li>
-<li>在Markdown文件中引用这个图片地址。</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/18/第一天/" data-id="cjryqmkuv000htk53s7cc9rp0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/15/hello-world/" class="article-date">
-  <time datetime="2018-12-15T11:30:30.023Z" itemprop="datePublished">2018-12-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/15/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/15/hello-world/" data-id="cjryqmkq30008tk53gduthafn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/01/Mac快捷键/" data-id="cjrysyeme0001j0531hjx0nl5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -489,7 +499,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -521,23 +531,23 @@
       <ul>
         
           <li>
-            <a href="/2019/02/10/happy-new-year/">happy new year</a>
+            <a href="/2019/02/10/ESLint/">ESLint</a>
           </li>
         
           <li>
-            <a href="/2019/02/10/try-2019/">try-2019</a>
+            <a href="/2019/02/10/setState问题/">setState问题</a>
           </li>
         
           <li>
-            <a href="/2019/01/21/react-Table-增删改查/">react - Table 增删改查</a>
+            <a href="/2019/02/10/antd-Popover/">antd - Popover</a>
           </li>
         
           <li>
-            <a href="/2019/01/21/propTypes类型检查/">propTypes类型检查</a>
+            <a href="/2019/02/10/antd-Form-提交按钮的两种方式/">antd - Form 提交按钮的两种方式</a>
           </li>
         
           <li>
-            <a href="/2019/01/21/findIndex/">findIndex()</a>
+            <a href="/2019/02/10/Map和forEach/">Map和forEach</a>
           </li>
         
       </ul>
