@@ -7,17 +7,17 @@
   
   <title>css中的“～”与“&gt;” | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="css中的”～”与”&amp;gt;”css中”~”为所有相同的 {父元素中位于 p 元素之后的所有 a 元素}设置背景： 123456p~a&amp;#123;　　background:#ff0000;&amp;#125;&amp;lt;p&amp;gt;快乐&amp;lt;/p&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt; p~a 选择的是前面有 p 元素的每个 a元素。 定义和用法p~a选择器">
+  <meta name="description" content="css中”~”为所有相同的 {父元素中位于 p 元素之后的所有 a 元素}设置背景： 123456p~a&amp;#123;　　background:#ff0000;&amp;#125;&amp;lt;p&amp;gt;快乐&amp;lt;/p&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt; p~a 选择的是前面有 p 元素的每个 a元素。 定义和用法p~a选择器 p之后出现的所有a。两种元素">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css中的“～”与“&gt;”">
 <meta property="og:url" content="http://yoursite.com/2019/03/03/css中的“～”与“-”/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="css中的”～”与”&amp;gt;”css中”~”为所有相同的 {父元素中位于 p 元素之后的所有 a 元素}设置背景： 123456p~a&amp;#123;　　background:#ff0000;&amp;#125;&amp;lt;p&amp;gt;快乐&amp;lt;/p&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt; p~a 选择的是前面有 p 元素的每个 a元素。 定义和用法p~a选择器">
+<meta property="og:description" content="css中”~”为所有相同的 {父元素中位于 p 元素之后的所有 a 元素}设置背景： 123456p~a&amp;#123;　　background:#ff0000;&amp;#125;&amp;lt;p&amp;gt;快乐&amp;lt;/p&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt; p~a 选择的是前面有 p 元素的每个 a元素。 定义和用法p~a选择器 p之后出现的所有a。两种元素">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-03T12:56:10.457Z">
+<meta property="og:updated_time" content="2019-03-03T13:03:22.526Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css中的“～”与“&gt;”">
-<meta name="twitter:description" content="css中的”～”与”&amp;gt;”css中”~”为所有相同的 {父元素中位于 p 元素之后的所有 a 元素}设置背景： 123456p~a&amp;#123;　　background:#ff0000;&amp;#125;&amp;lt;p&amp;gt;快乐&amp;lt;/p&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt; p~a 选择的是前面有 p 元素的每个 a元素。 定义和用法p~a选择器">
+<meta name="twitter:description" content="css中”~”为所有相同的 {父元素中位于 p 元素之后的所有 a 元素}设置背景： 123456p~a&amp;#123;　　background:#ff0000;&amp;#125;&amp;lt;p&amp;gt;快乐&amp;lt;/p&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt; p~a 选择的是前面有 p 元素的每个 a元素。 定义和用法p~a选择器 p之后出现的所有a。两种元素">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -86,7 +86,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="css中的”～”与”-gt-”"><a href="#css中的”～”与”-gt-”" class="headerlink" title="css中的”～”与”&gt;”"></a>css中的”～”与”&gt;”</h1><h3 id="css中”-”"><a href="#css中”-”" class="headerlink" title="css中”~”"></a>css中”~”</h3><p>为所有相同的 {父元素中位于 p 元素之后的所有 a 元素}设置背景：</p>
+        <h3 id="css中”-”"><a href="#css中”-”" class="headerlink" title="css中”~”"></a>css中”~”</h3><p>为所有相同的 {父元素中位于 p 元素之后的所有 a 元素}设置背景：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">p~a&#123;</span><br><span class="line">　　background:#ff0000;</span><br><span class="line">&#125;</span><br><span class="line">&lt;p&gt;快乐&lt;/p&gt;</span><br><span class="line">&lt;a&gt;幸福&lt;/a&gt;</span><br><span class="line">&lt;a&gt;幸福&lt;/a&gt;</span><br></pre></td></tr></table></figure>
 <p>p~a 选择的是前面有 p 元素的每个 a元素。</p>
 <h6 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h6><p>p~a选择器 p之后出现的所有a。<br>两种元素必须拥有相同的父元素，但是 a不必直接紧随 p。</p>
@@ -102,7 +102,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/03/css中的“～”与“-”/" data-id="cjssxckti000bx853boxzfvwd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/03/css中的“～”与“-”/" data-id="cjssxhbpp000b9853ikh255ck" class="article-share-link">Share</a>
       
       
     </footer>
