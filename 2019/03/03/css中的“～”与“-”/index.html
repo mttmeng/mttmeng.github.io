@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>css中的“～”与“&gt;” | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="css中的”～”与”&amp;gt;”css中”~”为所有相同的 {父元素中位于 p 元素之后的所有 a 元素}设置背景： 123456p~a&amp;#123;　　background:#ff0000;&amp;#125;&amp;lt;p&amp;gt;快乐&amp;lt;/p&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt; p~a 选择的是前面有 p 元素的每个 a元素。 定义和用法p~a选择器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css中的“～”与“&gt;”">
+<meta property="og:url" content="http://yoursite.com/2019/03/03/css中的“～”与“-”/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="css中的”～”与”&amp;gt;”css中”~”为所有相同的 {父元素中位于 p 元素之后的所有 a 元素}设置背景： 123456p~a&amp;#123;　　background:#ff0000;&amp;#125;&amp;lt;p&amp;gt;快乐&amp;lt;/p&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt; p~a 选择的是前面有 p 元素的每个 a元素。 定义和用法p~a选择器">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-03T12:56:10.457Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css中的“～”与“&gt;”">
+<meta name="twitter:description" content="css中的”～”与”&amp;gt;”css中”~”为所有相同的 {父元素中位于 p 元素之后的所有 a 元素}设置背景： 123456p~a&amp;#123;　　background:#ff0000;&amp;#125;&amp;lt;p&amp;gt;快乐&amp;lt;/p&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt;&amp;lt;a&amp;gt;幸福&amp;lt;/a&amp;gt; p~a 选择的是前面有 p 元素的每个 a元素。 定义和用法p~a选择器">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-css中的“～”与“-”" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/03/css中的“～”与“-”/" class="article-date">
+  <time datetime="2019-03-03T12:37:57.000Z" itemprop="datePublished">2019-03-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      css中的“～”与“&gt;”
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="css中的”～”与”-gt-”"><a href="#css中的”～”与”-gt-”" class="headerlink" title="css中的”～”与”&gt;”"></a>css中的”～”与”&gt;”</h1><h3 id="css中”-”"><a href="#css中”-”" class="headerlink" title="css中”~”"></a>css中”~”</h3><p>为所有相同的 {父元素中位于 p 元素之后的所有 a 元素}设置背景：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">p~a&#123;</span><br><span class="line">　　background:#ff0000;</span><br><span class="line">&#125;</span><br><span class="line">&lt;p&gt;快乐&lt;/p&gt;</span><br><span class="line">&lt;a&gt;幸福&lt;/a&gt;</span><br><span class="line">&lt;a&gt;幸福&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>p~a 选择的是前面有 p 元素的每个 a元素。</p>
+<h6 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h6><p>p~a选择器 p之后出现的所有a。<br>两种元素必须拥有相同的父元素，但是 a不必直接紧随 p。</p>
+<h3 id="css中”-gt-”"><a href="#css中”-gt-”" class="headerlink" title="css中”&gt;”"></a>css中”&gt;”</h3><p>css3特有的选择器，A&gt;B 表示选择A元素的所有子元素B。</p>
+<p>与A B的区别在于，A B选择所有后代元素，而A&gt;B只选择一代。<br>.a，.b｛给a，b设置相同的css样式｝；<br>.a .b｛给a b的所有后代元素设置样式｝；<br>.a&gt;.b｛给a元素下的子代元素b（只选择一代）设置样式｝;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;modal show hide&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">.modal &#123;</span><br><span class="line">color:red;</span><br><span class="line"></span><br><span class="line">&amp;show &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&amp;hide &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>相当于：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;modal show hide&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.modal &#123;</span><br><span class="line">color:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.modal.show &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.modal.hide &#123;</span><br><span class="line">...&#125;</span><br></pre></td></tr></table></figure>
+<p>前者是Scss写法，结构更清晰，代码更简洁</p>
+<p>但我要说明一下：<br>&amp; .show &lt;=&gt;.modal .show<br>指的是这种结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;modal&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;show&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>&amp;.show &lt;=&gt; .modal.show<br>指的是这种结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;modal show&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>写的时候注意&amp;之后的空格，不要多写，也不要漏写</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/03/css中的“～”与“-”/" data-id="cjssx9h4y000bks5342ehq3ij" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/03/a标签唤起拨打电话页面/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">a标签唤起拨打电话页面</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/03/css中的“～”与“-”/">css中的“～”与“&gt;”</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/03/a标签唤起拨打电话页面/">a标签唤起拨打电话页面</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/03/first-child和first-of-type/">first-child和first-of-type</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/03/‘组件通信/">组件通信</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/10/自己怎么坑自己的/">自己怎么坑自己的......</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

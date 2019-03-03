@@ -5,19 +5,19 @@
   
 
   
-  <title>get, post, put, delete, patch | Hexo</title>
+  <title>组件通信 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="post = 新增用于提交请求，可以更新或者创建资源，是非幂等的。多次执行，将导致多条相同的用户被创建（users/1，users/2 …而这些用户除了自增长id外有着相同的数据，除非你的系统实现了额外的数据唯一性检查）。 get = 获取／查看put = 更新或新增用于向指定的URI传送更新资源，是幂等的。 put方法用来创建一个URI已知的资源，或对已知资源进行完全替换。 put方法一般会用来">
+  <meta name="description" content="组件通信前段时间看了一个同事写的代码，发现了我们两个实现组件通信的差异。我的方式：子组件调用父组件的onChange事件，在父组件的onChange事件中进行数据的操作，传递数据给子组件。 他的方式：子组件自己进行数据操作，调用父组件的onChange事件将数据传递给父组件。 后来了解了两种方法的差异： 差异第一种方式数据的改变是实时的第二种方式数据的改变是非实时的 我们一般用子组件来实现一些页面">
 <meta property="og:type" content="article">
-<meta property="og:title" content="get, post, put, delete, patch">
-<meta property="og:url" content="http://yoursite.com/2019/01/20/get-post-put-delete-patch/index.html">
+<meta property="og:title" content="组件通信">
+<meta property="og:url" content="http://yoursite.com/2019/03/03/‘组件通信/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="post = 新增用于提交请求，可以更新或者创建资源，是非幂等的。多次执行，将导致多条相同的用户被创建（users/1，users/2 …而这些用户除了自增长id外有着相同的数据，除非你的系统实现了额外的数据唯一性检查）。 get = 获取／查看put = 更新或新增用于向指定的URI传送更新资源，是幂等的。 put方法用来创建一个URI已知的资源，或对已知资源进行完全替换。 put方法一般会用来">
+<meta property="og:description" content="组件通信前段时间看了一个同事写的代码，发现了我们两个实现组件通信的差异。我的方式：子组件调用父组件的onChange事件，在父组件的onChange事件中进行数据的操作，传递数据给子组件。 他的方式：子组件自己进行数据操作，调用父组件的onChange事件将数据传递给父组件。 后来了解了两种方法的差异： 差异第一种方式数据的改变是实时的第二种方式数据的改变是非实时的 我们一般用子组件来实现一些页面">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-20T15:49:55.480Z">
+<meta property="og:updated_time" content="2019-03-03T12:55:18.706Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="get, post, put, delete, patch">
-<meta name="twitter:description" content="post = 新增用于提交请求，可以更新或者创建资源，是非幂等的。多次执行，将导致多条相同的用户被创建（users/1，users/2 …而这些用户除了自增长id外有着相同的数据，除非你的系统实现了额外的数据唯一性检查）。 get = 获取／查看put = 更新或新增用于向指定的URI传送更新资源，是幂等的。 put方法用来创建一个URI已知的资源，或对已知资源进行完全替换。 put方法一般会用来">
+<meta name="twitter:title" content="组件通信">
+<meta name="twitter:description" content="组件通信前段时间看了一个同事写的代码，发现了我们两个实现组件通信的差异。我的方式：子组件调用父组件的onChange事件，在父组件的onChange事件中进行数据的操作，传递数据给子组件。 他的方式：子组件自己进行数据操作，调用父组件的onChange事件将数据传递给父组件。 后来了解了两种方法的差异： 差异第一种方式数据的改变是实时的第二种方式数据的改变是非实时的 我们一般用子组件来实现一些页面">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-get-post-put-delete-patch" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-‘组件通信" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/20/get-post-put-delete-patch/" class="article-date">
-  <time datetime="2019-01-20T15:43:21.000Z" itemprop="datePublished">2019-01-20</time>
+    <a href="/2019/03/03/‘组件通信/" class="article-date">
+  <time datetime="2019-03-03T12:09:28.000Z" itemprop="datePublished">2019-03-03</time>
 </a>
     
   </div>
@@ -78,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      get, post, put, delete, patch
+      组件通信
     </h1>
   
 
@@ -86,18 +86,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h6 id="post-新增"><a href="#post-新增" class="headerlink" title="post = 新增"></a>post = 新增</h6><p>用于提交请求，可以更新或者创建资源，是非幂等的。多次执行，将导致多条相同的用户被创建（users/1，users/2 …而这些用户除了自增长id外有着相同的数据，除非你的系统实现了额外的数据唯一性检查）。</p>
-<h6 id="get-获取／查看"><a href="#get-获取／查看" class="headerlink" title="get = 获取／查看"></a>get = 获取／查看</h6><h6 id="put-更新或新增"><a href="#put-更新或新增" class="headerlink" title="put = 更新或新增"></a>put = 更新或新增</h6><p>用于向指定的URI传送更新资源，是幂等的。</p>
-<p>put方法用来创建一个URI已知的资源，或对已知资源进行完全替换。</p>
-<p>put方法一般会用来更新一个已知资源，除非在创建前，你完全知道自己要创建的对象的URI。</p>
-<p>put 会在地址栏显示参数信息，不安全</p>
-<h6 id="delete-刪除"><a href="#delete-刪除" class="headerlink" title="delete = 刪除"></a>delete = 刪除</h6><h6 id="patch-部分更新"><a href="#patch-部分更新" class="headerlink" title="patch = 部分更新"></a>patch = 部分更新</h6><p>patch 方法是新引入的，是对  put  方法的补充，用来对已知资源进行局部更新。</p>
-<p>axios 中常见的 get/delete 请求，也称作query请求。</p>
+        <h4 id="组件通信"><a href="#组件通信" class="headerlink" title="组件通信"></a>组件通信</h4><p>前段时间看了一个同事写的代码，发现了我们两个实现组件通信的差异。<br>我的方式：子组件调用父组件的onChange事件，在父组件的onChange事件中进行数据的操作，传递数据给子组件。</p>
+<p>他的方式：<br>子组件自己进行数据操作，调用父组件的onChange事件将数据传递给父组件。</p>
+<p>后来了解了两种方法的差异：</p>
+<h6 id="差异"><a href="#差异" class="headerlink" title="差异"></a>差异</h6><p>第一种方式数据的改变是实时的<br>第二种方式数据的改变是非实时的</p>
+<p>我们一般用子组件来实现一些页面局部的复杂逻辑，如果这个逻辑内部的数据处理也很复杂，那么第二种方式更为合适。</p>
+<p>此外，如果局部的复杂逻辑的实现在子组件内部还有子组件的子组件，这种情况，我们优先选择第二种方式；</p>
+<p>相对的：<br>如果这个数据处理比较简单，我们完全可以将整个子组件看做页面上的一个输入框（也可以是其他实现某个功能的对话框），那么第一种方式比较合适。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/20/get-post-put-delete-patch/" data-id="cjssx9h5m000eks53xjg0hxon" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/03/‘组件通信/" data-id="cjssx9h6y000mks533on9n07o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -106,19 +106,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/01/21/findIndex/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/03/first-child和first-of-type/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          findIndex()
+          first-child和first-of-type
         
       </div>
     </a>
   
   
-    <a href="/2019/01/20/push、-unshift、-concat、-Object-Assign/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/02/10/自己怎么坑自己的/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">.push、.unshift、.concat、.Object.Assign</div>
+      <div class="article-nav-title">自己怎么坑自己的......</div>
     </a>
   
 </nav>

@@ -62,6 +62,177 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-微信小程序（一）" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/20/微信小程序（一）/" class="article-date">
+  <time datetime="2019-01-20T15:20:28.000Z" itemprop="datePublished">2019-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/20/微信小程序（一）/">微信小程序（一）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="微信小程序（一）"><a href="#微信小程序（一）" class="headerlink" title="微信小程序（一）"></a>微信小程序（一）</h2><h5 id="1、与两者的区别是，-是一个组件，会在页面上做渲染；不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。"><a href="#1、与两者的区别是，-是一个组件，会在页面上做渲染；不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。" class="headerlink" title="1、与两者的区别是， 是一个组件，会在页面上做渲染；不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。"></a>1、<view>与<block>两者的区别是，<view> 是一个组件，会在页面上做渲染；<block>不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。</block></view></block></view></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;block wx:if=&quot;&#123;&#123;true&#125;&#125;&quot;&gt;</span><br><span class="line">&lt;view&gt; text &lt;/view&gt;</span><br><span class="line">&lt;view&gt; text &lt;/view&gt;</span><br><span class="line">&lt;/block&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="2、elif（相当于else-if）"><a href="#2、elif（相当于else-if）" class="headerlink" title="2、elif（相当于else if）"></a>2、elif（相当于else if）</h5><p><code>if...elif...else...</code></p>
+<h5 id="3、wx-for、wx-for-item、wx-for-indexwx-for等价与wx-for-items，是循环数组用的；"><a href="#3、wx-for、wx-for-item、wx-for-indexwx-for等价与wx-for-items，是循环数组用的；" class="headerlink" title="3、wx:for、wx:for-item、wx:for-indexwx:for等价与wx:for-items，是循环数组用的；"></a>3、wx:for、wx:for-item、wx:for-indexwx:for等价与wx:for-items，是循环数组用的；</h5><p>使用 wx:for-item 可以指定数组当前元素的变量名，<br>使用 wx:for-index 可以指定数组当前下标的变量名：默认 index<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:for =&quot;&#123;&#123;item.childlist&#125;&#125;&quot; wx:for-item=&quot;items&gt;</span><br><span class="line">&#123;&#123;item.id&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:for=&quot;&#123;&#123;array&#125;&#125;&quot; wx:for-index=&quot;idx&quot; wx:for-item=&quot;itemName&quot;&gt;</span><br><span class="line">&#123;&#123;idx&#125;&#125;: &#123;&#123;itemName.message&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="4、wx-key"><a href="#4、wx-key" class="headerlink" title="4、wx:key"></a>4、wx:key</h5><p>如果列表中项目位置会动态改变或者可能会有新的项目会加入列表中<br>需要标识这个项目在列表的位置：<br>则可以选用ltem的某个唯一的属性作为Key<br>或者用 *this 关键字代表 for循环的item本身，这种表示需要item本身就是 一个唯一的字符串或者数字。<br>当数据改变触发渲染层重新渲染的时候，会校正带有 key 的组件，框架会确保他们被重新排序，而不是重新创建，以确保使组件保持自身的状态，并且提高列表渲染时的效率。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/微信小程序（一）/" data-id="cjssx9h7e000pks53mkm3wxta" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-bind-this" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/20/bind-this/" class="article-date">
+  <time datetime="2019-01-20T05:09:45.000Z" itemprop="datePublished">2019-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/20/bind-this/">.bind(this)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="this-handleClick-this-handleClick-bind-this"><a href="#this-handleClick-this-handleClick-bind-this" class="headerlink" title="this.handleClick = this.handleClick.bind(this);"></a>this.handleClick = this.handleClick.bind(this);</h5><h6 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h6><p>1、把原型方法handleClick( )改变为实例方法handleClick( ),并且强制指定这个方法中的this指向当前的实例。</p>
+<p>this 是指的当前组件的实例, 如果你在方法中的 this 指向不对的话, 那么当前组件里面的state, props你都无法使用的</p>
+<p>这样写的目的是确保handleclick里面的this指向的是当前这个类。</p>
+<p>因为this是在哪调用就指向哪的，你把那个函数当做props传给了子组件，执行就不是发生在当前类了。</p>
+<p>在react中这样写，是为了让子组件在调用这个函数的时候this是指向父组件的。</p>
+<p>若一个函数采用ES6箭头函数方式定义，则不需要使用.bind(this),因为箭头函数中的this指的是上下文中的this。 （函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象）。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/bind-this/" data-id="cjssx9h4e0009ks5328piptyz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-call-、apply-、bind-的用法" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/20/call-、apply-、bind-的用法/" class="article-date">
+  <time datetime="2019-01-20T04:55:11.000Z" itemprop="datePublished">2019-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/20/call-、apply-、bind-的用法/">call()、apply()、bind()的用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="JavaScript-中-call-、apply-、bind-的用法"><a href="#JavaScript-中-call-、apply-、bind-的用法" class="headerlink" title="JavaScript 中 call()、apply()、bind() 的用法"></a>JavaScript 中 call()、apply()、bind() 的用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">obj.myFun.call(db,&apos;成都&apos;,&apos;上海&apos;)；　　　　 // 德玛 年龄 99 来自 成都去往上海</span><br><span class="line">obj.myFun.apply(db,[&apos;成都&apos;,&apos;上海&apos;]);      // 德玛 年龄 99 来自 成都去往上海</span><br><span class="line">obj.myFun.bind(db,&apos;成都&apos;,&apos;上海&apos;)();       // 德玛 年龄 99 来自 成都去往上海</span><br><span class="line">obj.myFun.bind(db,[&apos;成都&apos;,&apos;上海&apos;])();　　 // 德玛 年龄 99 来自 成都, 上海去往 undefined</span><br></pre></td></tr></table></figure>
+<h6 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h6><p>call 、bind 、 apply 这三个函数的第一个参数都是 this 的指向对象；<br>第二个参数差别是：<br>1、call 的参数是直接放进去的，第二第三第 n 个参数全都用逗号分隔，直接放到后面 obj.myFun.call(db,’成都’, … ,’string’ )。</p>
+<p>2、apply 的所有参数都必须放在一个数组里面传进去 obj.myFun.apply(db,[‘成都’, …, ‘string’ ])。</p>
+<p>3、bind 除了返回是函数以外，它 的参数和 call 一样。<br>当然，三者的参数不限定是 string 类型，允许是各种类型，包括函数 、 object 等等！</p>
+<p>4、bind 是返回对应 函数，便于稍后调用；apply 、call 则是立即调用 。</p>
+<h6 id="bind-方法"><a href="#bind-方法" class="headerlink" title="bind() 方法"></a>bind() 方法</h6><p>MDN 的解释是：bind() 方法会创建一个 新函数，称为绑定函数，当调用这个绑定函数时，绑定函数会以创建它时传入 bind() 方法的第一个参数 作为 this，传入 bind() 方法的 第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数。</p>
+<p>在 Javascript 中，多次 bind() 是无效的。更深层次的原因，bind() 的实现，相当于使用函数在内部包了一个 call / apply ，第二次 bind() 相当于再包住第一次 bind() ,故第二次以后的 bind 是无法生效的。</p>
+<p>bind方法生成了一个新的函数，称为绑定函数，传入bind方法的第一个參数作为这个绑定函数的this对象，传入bind的第二个參数连同后面调用绑定函数时传入的參数依照先后顺序（传入bind的在前）构成绑定函数的參数。</p>
+<p>.bind()创建了一个函数，当这个函数在被调用的时候。它的 this 关键词会被设置成被传入的值（这里指调用bind()时传入的參数）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/call-、apply-、bind-的用法/" data-id="cjssx9h4i000aks537gj54k8y" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-react - 列表和key" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/06/react - 列表和key/" class="article-date">
+  <time datetime="2019-01-06T13:39:21.000Z" itemprop="datePublished">2019-01-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/06/react - 列表和key/">react - 列表和key</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="react-列表和key"><a href="#react-列表和key" class="headerlink" title="react - 列表和key"></a>react - 列表和key</h1><h6 id="1、列表"><a href="#1、列表" class="headerlink" title="1、列表"></a>1、列表</h6><p>使用 JavaScript 的 map() 方法来创建列表。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const numbers = [1, 2, 3, 4, 5];</span><br><span class="line">const listItems = numbers.map((numbers) =&gt;</span><br><span class="line">  &lt;li&gt;&#123;numbers&#125;&lt;/li&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>但这样写Chrome控制台会提示我们，应该给列表中的每个元素添加一个名为key的属性。</p>
+<h6 id="2、key"><a href="#2、key" class="headerlink" title="2、key"></a>2、key</h6><p>   react使用key属性来标记列表中的每个元素，当列表发生变化时，react可以通过key知道哪些元素发生了变化，从而只重新渲染发生变化的元素，提高渲染效率。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const numbers = [1, 2, 3, 4, 5];</span><br><span class="line">const listItems = numbers.map((number) =&gt;</span><br><span class="line">  &lt;li key=&#123;number.toString()&#125;&gt;</span><br><span class="line">    &#123;number&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>  一个元素的 key 最好是这个元素在列表中拥有的一个独一无二的字符串。通常，我们使用来自数据的 id 作为元素的 key<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const todoItems = todos.map((todo) =&gt;</span><br><span class="line">  &lt;li key=&#123;todo.id&#125;&gt;</span><br><span class="line">    &#123;todo.text&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>当元素没有确定的 id 时，你可以使用他的序列号索引 index 作为 key。<br>但并不推荐使用索引作为key，因为一旦列表中的数据发生重排，数据的索引也会发生改变，不利于react的渲染。</p>
+<h6 id="3、问题"><a href="#3、问题" class="headerlink" title="3、问题"></a>3、问题</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li key=&#123;number.toString()&#125;&gt;</span><br></pre></td></tr></table></figure>
+<p>.toString()的作用</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/06/react - 列表和key/" data-id="cjssx9h6i000jks537ngfmhn0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-高度自适应水平垂直居中" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/06/高度自适应水平垂直居中/" class="article-date">
@@ -105,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/06/高度自适应水平垂直居中/" data-id="cjrytv1ot000pig534qml4896" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/06/高度自适应水平垂直居中/" data-id="cjssx9h7y000tks53uuns1mog" class="article-share-link">Share</a>
       
       
     </footer>
@@ -143,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/06/弹框遮罩的两种实现方式/" data-id="cjrytv1ny000kig53e5a7th1o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/06/弹框遮罩的两种实现方式/" data-id="cjssx9h76000oks53ruz57bw2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -183,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/01/Mac快捷键/" data-id="cjrytv1jm0001ig53vkrcgwms" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/01/Mac快捷键/" data-id="cjssx9h2i0001ks53vkr36w3v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -246,7 +417,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/19/环境配置/" data-id="cjrytv1od000mig535cbkdjp9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/19/环境配置/" data-id="cjssx9h7i000qks538hi0bijm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -300,7 +471,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/18/第一天/" data-id="cjrytv1od000nig53hrxslh8z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/18/第一天/" data-id="cjssx9h7q000rks53cup0n6il" class="article-share-link">Share</a>
       
       
     </footer>
@@ -345,7 +516,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/15/hello-world/" data-id="cjrytv1m7000cig53dzjrx96v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/15/hello-world/" data-id="cjssx9h5q000fks53eazeopuk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -378,7 +549,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
     </div>
   </div>
 
@@ -391,23 +562,23 @@
       <ul>
         
           <li>
+            <a href="/2019/03/03/css中的“～”与“-”/">css中的“～”与“&gt;”</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/03/a标签唤起拨打电话页面/">a标签唤起拨打电话页面</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/03/first-child和first-of-type/">first-child和first-of-type</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/03/‘组件通信/">组件通信</a>
+          </li>
+        
+          <li>
             <a href="/2019/02/10/自己怎么坑自己的/">自己怎么坑自己的......</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/10/Scss、Less/">Scss、Less</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/10/去掉textarea右下角的三角/">去掉textarea右下角的三角</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/10/ESLint/">ESLint</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/10/setState问题/">setState问题</a>
           </li>
         
       </ul>

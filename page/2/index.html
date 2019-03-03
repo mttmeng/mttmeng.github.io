@@ -62,6 +62,196 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-antd-Form-提交按钮的两种方式" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/10/antd-Form-提交按钮的两种方式/" class="article-date">
+  <time datetime="2019-02-10T10:33:54.000Z" itemprop="datePublished">2019-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/10/antd-Form-提交按钮的两种方式/">antd - Form 提交按钮的两种方式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="第一种：在中定义onSubmit方法，然后将对应功能按钮的htmlType-’submit’"><a href="#第一种：在中定义onSubmit方法，然后将对应功能按钮的htmlType-’submit’" class="headerlink" title="第一种：在中定义onSubmit方法，然后将对应功能按钮的htmlType=’submit’;"></a>第一种：在<form>中定义onSubmit方法，然后将对应功能按钮的htmlType=’submit’;</form></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;Form onSubmit=&#123;this.onSearch&#125;&gt;</span><br><span class="line">  &lt;Card title=&#123;&apos;朋友圈文案库&apos;&#125;&gt;</span><br><span class="line">    &lt;Row&gt;</span><br><span class="line">      &lt;Col span=&#123;6&#125;&gt;</span><br><span class="line">         &lt;FormItem label=&quot;文案主题&quot; &#123;...formItemLayout&#125;&gt;</span><br><span class="line">            &#123;</span><br><span class="line">              getFieldDecorator(&apos;theme&apos;, &#123;</span><br><span class="line">                rules: [&#123; max: 20, message: &apos;不可以超过20个字&apos; &#125;],</span><br><span class="line">              &#125;)(&lt;Input name=&quot;title&quot; /&gt;)</span><br><span class="line">            &#125;</span><br><span class="line">          &lt;/FormItem&gt;</span><br><span class="line">       &lt;/Col&gt;</span><br><span class="line"></span><br><span class="line">       &lt;Col span=&#123;6&#125; offset=&#123;4&#125;&gt;</span><br><span class="line">          &lt;FormItem&gt;</span><br><span class="line">            &lt;Button type=&quot;primary&quot; htmlType=&quot;submit&quot;&gt;查询&lt;/Button&gt;</span><br><span class="line">          &lt;/FormItem&gt;</span><br><span class="line">       &lt;/Col&gt;</span><br><span class="line">     &lt;/Row&gt;</span><br><span class="line">   &lt;/Card&gt;</span><br><span class="line"> &lt;/Form&gt;</span><br></pre></td></tr></table></figure>
+<p>用这种方法必须在onSubmit(即onSearch)方法里使用 ele.preventDefault();否则会执行默认实践。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">onSearch = (ele) =&gt; &#123;</span><br><span class="line">  const &#123; handleSearch, form: &#123; getFieldsValue &#125; &#125; = this.props;</span><br><span class="line">  const &#123; theme, date &#125; = getFieldsValue();</span><br><span class="line">  const [startTime = null, endTime = null] = date || [];</span><br><span class="line">  const params = &#123;</span><br><span class="line">    startTime: startTime ? moment(startTime).format(&apos;YYYY-MM-DD&apos;) : null,</span><br><span class="line">    endTime: endTime ? moment(endTime).format(&apos;YYYY-MM-DD&apos;) : null,</span><br><span class="line">    theme,</span><br><span class="line">  &#125;;</span><br><span class="line">  ele.preventDefault(); //画重点</span><br><span class="line">  handleSearch(params);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h6 id="第二种：直接在对应按钮中执行onSearch方法；"><a href="#第二种：直接在对应按钮中执行onSearch方法；" class="headerlink" title="第二种：直接在对应按钮中执行onSearch方法；"></a>第二种：直接在对应按钮中执行onSearch方法；</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button type=&quot;primary&quot; onSubmit=&#123;this.onSearch&#125;&gt;查询&lt;/Button&gt;</span><br></pre></td></tr></table></figure>
+<p>用这种方式不需要在onSearch中执行 ele.preventDefault();</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/10/antd-Form-提交按钮的两种方式/" data-id="cjssx9h3u0006ks539hvshp9o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Map和forEach" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/10/Map和forEach/" class="article-date">
+  <time datetime="2019-02-10T10:16:07.000Z" itemprop="datePublished">2019-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/10/Map和forEach/">Map和forEach</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Map和forEach都属于数组Array的方法，用于遍历数组，高级浏览器支持。</p>
+<h6 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h6><p>Map有返回值，会返回数组的每一项，但不改变原数组，相当于返回原数组的一个修改过的副本；<br>而 forEach 没有返回值，只是遍历数组。<br>从结构和参数形式上看，map方法和forEach方法一模一样，但：</p>
+<h6 id="forEach方法"><a href="#forEach方法" class="headerlink" title="forEach方法"></a>forEach方法</h6><p>调用数组的每一个元素，并将元素传递给回调函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.forEach(function(currentValue, index, currentArray)&#123; &#125; , thisValue);</span><br></pre></td></tr></table></figure></p>
+<p>currentValue为数组当前item的一个副本，因此改变currentValue不会对原数组产生影响<br>通过currentArray与index改变原数组</p>
+<h6 id="map方法"><a href="#map方法" class="headerlink" title="map方法"></a>map方法</h6><p>返回一个新数组，数组中每一个元素为原数组元素调用回调函数处理后的结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var newArray = array.map(function(currentValue, index, currentArray)&#123;&#125;, thisValue);</span><br></pre></td></tr></table></figure></p>
+<p>不会对原数组产生改变<br>不会对空数组进行检测</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/10/Map和forEach/" data-id="cjssx9h2u0002ks53ysh6s4f1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hexo-template-render-error" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/10/hexo-template-render-error/" class="article-date">
+  <time datetime="2019-02-10T10:11:24.000Z" itemprop="datePublished">2019-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/10/hexo-template-render-error/">hexo template render error</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="hexo-git上传，出现Template-render-error"><a href="#hexo-git上传，出现Template-render-error" class="headerlink" title="hexo git上传，出现Template render error"></a>hexo git上传，出现Template render error</h1><p>具体报错信息如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">...MINGW64 /d/Sweat</span><br><span class="line">$ hexo s</span><br><span class="line">INFO  Start processing</span><br><span class="line">FATAL Something&apos;s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span><br><span class="line">Template render error: (unknown path) [Line 13, Column 33]</span><br><span class="line">  expected variable end</span><br><span class="line">    at Object._prettifyError (D:\Sweat\node_modules\nunjucks\src\lib.js:36:11)</span><br><span class="line">    at Template.render (D:\Sweat\node_modules\nunjucks\src\environment.js:526:21)</span><br><span class="line">    at Environment.renderString (D:\Sweat\node_modules\nunjucks\src\environment.js:364:17)</span><br><span class="line">    at Promise.fromCallback.cb (D:\Sweat\node_modules\hexo\lib\extend\tag.js:62:48)</span><br><span class="line">    at tryCatcher (D:\Sweat\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Function.Promise.fromNode.Promise.fromCallback (D:\Sweat\node_modules\bluebird\js\release\promise.js:180:30)</span><br><span class="line">    at Tag.render (D:\Sweat\node_modules\hexo\lib\extend\tag.js:62:18)</span><br><span class="line">    at Object.onRenderEnd (D:\Sweat\node_modules\hexo\lib\hexo\post.js:282:20)</span><br><span class="line">    at Promise.then.then.result (D:\Sweat\node_modules\hexo\lib\hexo\render.js:65:19)</span><br><span class="line">    at tryCatcher (D:\Sweat\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\Sweat\node_modules\bluebird\js\release\promise.js:512:31)</span><br><span class="line">    at Promise._settlePromise (D:\Sweat\node_modules\bluebird\js\release\promise.js:569:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\Sweat\node_modules\bluebird\js\release\promise.js:614:10)</span><br><span class="line">    at Promise._settlePromises (D:\Sweat\node_modules\bluebird\js\release\promise.js:694:18)</span><br><span class="line">    at _drainQueueStep (D:\Sweat\node_modules\bluebird\js\release\async.js:138:12)</span><br><span class="line">    at _drainQueue (D:\Sweat\node_modules\bluebird\js\release\async.js:131:9)</span><br><span class="line">    at Async._drainQueues (D:\Sweat\node_modules\bluebird\js\release\async.js:147:5)</span><br><span class="line">    at Immediate.Async.drainQueues (D:\Sweat\node_modules\bluebird\js\release\async.js:17:14)</span><br><span class="line">    at runCallback (timers.js:705:18)</span><br><span class="line">    at tryOnImmediate (timers.js:676:5)</span><br><span class="line">    at processImmediate (timers.js:658:5)</span><br></pre></td></tr></table></figure></p>
+<h3 id="问题原因有两种："><a href="#问题原因有两种：" class="headerlink" title="问题原因有两种："></a>问题原因有两种：</h3><h6 id="1、主题的配置文件config-yml中有问题，很有可能是配置文件没有有空格隔开。"><a href="#1、主题的配置文件config-yml中有问题，很有可能是配置文件没有有空格隔开。" class="headerlink" title="1、主题的配置文件config.yml中有问题，很有可能是配置文件没有有空格隔开。"></a>1、主题的配置文件config.yml中有问题，很有可能是配置文件没有有空格隔开。</h6><h6 id="2、自己写的文章内有一些不能用的字符，导致-md格式文章转换报错（我的问题所在）"><a href="#2、自己写的文章内有一些不能用的字符，导致-md格式文章转换报错（我的问题所在）" class="headerlink" title="2、自己写的文章内有一些不能用的字符，导致.md格式文章转换报错（我的问题所在）"></a>2、自己写的文章内有一些不能用的字符，导致.md格式文章转换报错（我的问题所在）</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">..\source\_posts目录下的文章</span><br></pre></td></tr></table></figure>
+<p>解决方案：仔细检查..\source_posts目录下的文章，有没有”{ }”等符号，或者代码没有被放入代码框内<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.md文件格式是markdown，可以用三个停顿点表示代码框</span><br><span class="line">```中间写上代码</span><br></pre></td></tr></table></figure></p>
+<p><code>`</code><br>方便的方法是全文都用停顿号注释起来，既不用检查了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/10/hexo-template-render-error/" data-id="cjssx9h5y000gks53dlpin762" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-react-Table-增删改查" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/21/react-Table-增删改查/" class="article-date">
+  <time datetime="2019-01-21T15:39:04.000Z" itemprop="datePublished">2019-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/21/react-Table-增删改查/">react - Table 增删改查</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Table-增删改查"><a href="#Table-增删改查" class="headerlink" title="Table 增删改查"></a>Table 增删改查</h2><h5 id="add"><a href="#add" class="headerlink" title="add:"></a>add:</h5><p>点击add按钮控制弹框显示，添加数据，将表单里添加的数据用antd - Form属性提取出来传递给父组件对应保存函数：handleModalOk（）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">onOk = (imageUrl) =&gt; &#123;</span><br><span class="line">this.props.form.validateFieldsAndScroll((err, values) =&gt; &#123;</span><br><span class="line">if (!err) &#123;</span><br><span class="line">this.props.onOk(values, imageUrl);</span><br><span class="line">this.props.form.resetFields();</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>父组件对应回调函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">handleModalOk = (values, imageUrl) =&gt; &#123;</span><br><span class="line">const &#123; dataSource &#125; = this.state;</span><br><span class="line">let array = [];</span><br><span class="line">let count = 0;</span><br><span class="line">dataSource.forEach(function (element) &#123;</span><br><span class="line">Object.keys(element).some(function (key) &#123;</span><br><span class="line">if (key === &apos;key&apos;) &#123;</span><br><span class="line">count += 1;</span><br><span class="line">array[count] = element.key;</span><br><span class="line">&#125;</span><br><span class="line">return key;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">let sortData = array.sort();</span><br><span class="line">let MaxData = sortData[(dataSource.length) - 1];</span><br><span class="line">values.image = imageUrl;</span><br><span class="line">values.key = MaxData + 3;</span><br><span class="line">values.id = MaxData + 3;</span><br><span class="line">values.pull = false;</span><br><span class="line">this.setState(&#123;</span><br><span class="line">dataSource: dataSource.concat(values),</span><br><span class="line">visible: !this.state.visible,</span><br><span class="line">&#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>关于</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">values.key = MaxData + 3;</span><br><span class="line">values.id = MaxData + 3;</span><br></pre></td></tr></table></figure></p>
+<p>我参考的网上资料用的是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">values.key = MaxData + 1;</span><br><span class="line">values.id = MaxData + 1;</span><br></pre></td></tr></table></figure></p>
+<p>+1 的时候我获得的key和id是和倒数第二组数据重复的，所以在这里我 +3</p>
+<p>这种方法存在一个问题：<br>在添加第一条数据时，一切正常，key，id的值都没问题，但从添加第二条数据开始，key，id的值均为NAN<br>具体原因还未查明，待续……</p>
+<h5 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">handleDelete = (form, index) =&gt; &#123;</span><br><span class="line">const &#123; dataSource &#125; = this.state;</span><br><span class="line">dataSource.splice(index, 1);</span><br><span class="line">this.setState(&#123;</span><br><span class="line">dataSource,</span><br><span class="line">&#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="edit"><a href="#edit" class="headerlink" title="edit"></a>edit</h5><p>首先在FormSearch组件中出发search按钮，出发onSearch事件，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">onSearch = (ele) =&gt; &#123;</span><br><span class="line">const &#123; handleSearch, form: &#123; getFieldsValue &#125; &#125; = this.props;</span><br><span class="line">const &#123; title, date &#125; = getFieldsValue();</span><br><span class="line">const [startCreatedAt = null, endCreatedAt = null] = date || [];</span><br><span class="line">const params = &#123;</span><br><span class="line">startCreatedAt: startCreatedAt ? startCreatedAt.format(&apos;YYYY-MM-DD&apos;) : null,</span><br><span class="line">endCreatedAt: endCreatedAt ? endCreatedAt.format(&apos;YYYY-MM-DD&apos;) : null,</span><br><span class="line">title,</span><br><span class="line">&#125;;</span><br><span class="line">ele.preventDefault();</span><br><span class="line">handleSearch(params);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>将定义好的参数传递给毁掉函数handleSearch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">handleSearch = (value) =&gt; &#123;</span><br><span class="line">if (value.title === &apos;&apos;) &#123;</span><br><span class="line">this.setState(&#123;</span><br><span class="line">searchData: null,</span><br><span class="line">&#125;);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">const &#123; dataSource &#125; = this.state;</span><br><span class="line">const state = this.state;</span><br><span class="line">let result = [];</span><br><span class="line">let count = 0;</span><br><span class="line">dataSource.forEach(function (element) &#123;</span><br><span class="line">if (element.title === value.title) &#123;</span><br><span class="line">result = result.concat(element);</span><br><span class="line">state.searchData = result;</span><br><span class="line">count += 1;</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line">this.setState(&#123;</span><br><span class="line">state,</span><br><span class="line">&#125;);</span><br><span class="line">&#125;&#125;;</span><br></pre></td></tr></table></figure></p>
+<h5 id="edit-1"><a href="#edit-1" class="headerlink" title="edit:"></a>edit:</h5><p>使用antd - table得到当前行数据（text）;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">render: (text, record) =&gt; (</span><br><span class="line">&lt;div className=&quot;action-cell&quot;&gt;</span><br><span class="line">&lt;span onClick=&#123;() =&gt; this.handleAction(&apos;edit&apos;, text)&#125;&gt;修改&lt;/span&gt;),</span><br></pre></td></tr></table></figure></p>
+<p>我定义了一个新的对象CurrentData来存储当前行的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">handleAction = (type, text = []) =&gt; &#123;</span><br><span class="line">if (type === &apos;add&apos;) &#123;</span><br><span class="line">this.setState(&#123;</span><br><span class="line">type,</span><br><span class="line">currentData: &#123;&#125;, //空对象</span><br><span class="line">visible: !this.state.visible,</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line">if (type === &apos;edit&apos;) &#123;</span><br><span class="line">this.setState(&#123;</span><br><span class="line">type,</span><br><span class="line">currentData: text,</span><br><span class="line">visible: !this.state.visible,</span><br><span class="line">&#125;);</span><br><span class="line">&#125;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>text是一个对象，在最初我将currentData定义为一个数组，然后在点击edit按钮时，我得到了这样一个错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Invalid prop &apos;currentData&apos; of type &apos;array&apos; aupplied to &apos;ActionModal&apos;, eapected &apos;object&apos;.</span><br></pre></td></tr></table></figure></p>
+<p>这是因为在将对象text赋值给数组currentData时，将数组转化为了对象，所以报错。</p>
+<h6 id="Edit、Add弹框的合并写法："><a href="#Edit、Add弹框的合并写法：" class="headerlink" title="Edit、Add弹框的合并写法："></a>Edit、Add弹框的合并写法：</h6><p>首先，在FormSearch组件 -&gt; 新增按钮：将按钮的type作为参数传递给handleAction（）（即：handleAction（），）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;FormItem style=&#123;&#123; textAlign: &apos;right&apos; &#125;&#125;&gt;</span><br><span class="line">&lt;Button type=&quot;default&quot; onClick=&#123;() =&gt; this.props.handleAdd(&apos;add&apos;)&#125;&gt;新增&lt;/Button&gt;</span><br><span class="line">&lt;/FormItem&gt;</span><br></pre></td></tr></table></figure></p>
+<p>同时，table -&gt; edit按钮：将按钮的type，以及当前行的数据传递给handleAction（）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">render: (text, record) =&gt; (</span><br><span class="line">&lt;div className=&quot;action-cell&quot;&gt;</span><br><span class="line">&lt;span onClick=&#123;() =&gt; this.handleAction(&apos;edit&apos;, text)&#125;&gt;修改&lt;/span&gt;),</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line">接下来是handleAction（），</span><br></pre></td></tr></table></figure></p>
+<p>handleAction = (type, text = []) =&gt; {<br>if (type === ‘add’) {<br>this.setState({<br>type,<br>currentData: {},<br>visible: !this.state.visible,<br>});<br>}<br>if (type === ‘edit’) {<br>this.setState({<br>type,<br>currentData: text,<br>visible: !this.state.visible,<br>});<br>}};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">text = [] 这样写的原因：。。。。</span><br><span class="line"></span><br><span class="line">###### 弹框设置：</span><br></pre></td></tr></table></figure></p>
+<p>render() {<br>const { currentData, visible, type, form: { getFieldDecorator } } = this.props;<br>const { imageUrl } = this.state;<br>const formItemLayout = {<br>labelCol: { span: 4 },<br>wrapperCol: { span: 12 },<br>};<br>return (</p>
+<p><modal visible="{visible}" onok="{()" ==""> { this.onOk(imageUrl); }}<br>onCancel={this.onCancel}</modal></p>
+<blockquote>
+</blockquote>
+<p><form></form></p>
+<p><formitem label="文案主题" {...formitemlayout}=""><br>{<br>getFieldDecorator(‘theme’, {<br>rules: [{ max: 20, message: ‘不可以超过20字’ }],<br>initialValue: currentData.theme || ‘’,<br>})(<input>)<br>}<br></formitem></p>
+<p><formitem label="文案" {...formitemlayout}=""><br>{<br>getFieldDecorator(‘content’, {<br>rules: [{ max: 700, message: ‘不可以超过700字’ }],<br>initialValue: currentData.content || ‘’,<br>})(<textarea rows="{4}">)<br>}<br></textarea></formitem></p>
+<p><formitem label="图片" {...formitemlayout}=""><br>{<br>getFieldDecorator(‘image’)(</formitem></p>
+<p>&lt;Upload<br>className=”uploadButton”<br>listType=”picture-card”<br>showUploadList={false}<br>onChange={this.uploadChange}</p>
+<blockquote>
+</blockquote>
+<p>{<br>imageUrl ?<br><img classname="imgBox" src="{imageUrl}"><br>:<br>null<br>}<br>{<br>type === ‘edit’ ?<br><img classname="imgBox" src="{currentData.image}"><br>:</p>
+<p><button type="primary">图片上传</button><br>}<br>)<br>}<br><br><br><br>);<br>}<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">保存按钮：</span><br></pre></td></tr></table></figure></p>
+<p>handleModalOk = async (values, imageUrl) =&gt; {<br>this.setState({<br>visible: !this.state.visible,<br>});<br>const { type } = this.state;<br>values.image = imageUrl;<br>if (type === ‘add’) {<br>await addLibrary(values);<br>await this.query();<br>}<br>if (type === ‘edit’) {<br>const { currentData } = this.state;<br>currentData.theme = values.theme;<br>currentData.content = values.content;<br>currentData.image = imageUrl;<br>await editLibrary(currentData);<br>await this.query();<br>}<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##### reset:</span><br><span class="line">直接用this.props.form.resetFields()清空表单数据</span><br></pre></td></tr></table></figure></p>
+<p>onReset = () =&gt; {<br>const { handleReset, form: { resetFields } } = this.props;<br>resetFields();<br>handleReset &amp;&amp; handleReset(); // eslint-disable-line no-unused-expressions<br>};<br><code>`</code><br>虽然这次的需求不需要我重新刷新数据，但未来以后代码的可扩展性，我仍然定义了一个handleReset（），虽然目前它是空的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/21/react-Table-增删改查/" data-id="cjssx9h6m000kks5325udbfzu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-propTypes类型检查" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/21/propTypes类型检查/" class="article-date">
@@ -92,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/21/propTypes类型检查/" data-id="cjrytv1n3000eig536i8svw8n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/21/propTypes类型检查/" data-id="cjssx9h66000hks532xe108q1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -136,7 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/21/findIndex/" data-id="cjrytv1ls000aig53l5a873kq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/21/findIndex/" data-id="cjssx9h56000cks53p87lvbwf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -179,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/20/get-post-put-delete-patch/" data-id="cjrytv1m7000big53hthz7zj3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/20/get-post-put-delete-patch/" data-id="cjssx9h5m000eks53xjg0hxon" class="article-share-link">Share</a>
       
       
     </footer>
@@ -233,7 +423,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/20/push、-unshift、-concat、-Object-Assign/" data-id="cjrytv1n3000fig53slr3a7s7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/20/push、-unshift、-concat、-Object-Assign/" data-id="cjssx9h6a000iks53votnfmpn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -271,7 +461,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/20/React入门篇/" data-id="cjrytv1kh0004ig536q1c2l6j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/20/React入门篇/" data-id="cjssx9h3e0004ks537mcn47ak" class="article-share-link">Share</a>
       
       
     </footer>
@@ -310,178 +500,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/20/React-super-props/" data-id="cjrytv1kh0003ig53thi52f12" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-微信小程序（一）" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/20/微信小程序（一）/" class="article-date">
-  <time datetime="2019-01-20T15:20:28.000Z" itemprop="datePublished">2019-01-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/20/微信小程序（一）/">微信小程序（一）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="微信小程序（一）"><a href="#微信小程序（一）" class="headerlink" title="微信小程序（一）"></a>微信小程序（一）</h2><h5 id="1、与两者的区别是，-是一个组件，会在页面上做渲染；不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。"><a href="#1、与两者的区别是，-是一个组件，会在页面上做渲染；不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。" class="headerlink" title="1、与两者的区别是， 是一个组件，会在页面上做渲染；不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。"></a>1、<view>与<block>两者的区别是，<view> 是一个组件，会在页面上做渲染；<block>不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染。</block></view></block></view></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;block wx:if=&quot;&#123;&#123;true&#125;&#125;&quot;&gt;</span><br><span class="line">&lt;view&gt; text &lt;/view&gt;</span><br><span class="line">&lt;view&gt; text &lt;/view&gt;</span><br><span class="line">&lt;/block&gt;</span><br></pre></td></tr></table></figure>
-<h5 id="2、elif（相当于else-if）"><a href="#2、elif（相当于else-if）" class="headerlink" title="2、elif（相当于else if）"></a>2、elif（相当于else if）</h5><p><code>if...elif...else...</code></p>
-<h5 id="3、wx-for、wx-for-item、wx-for-indexwx-for等价与wx-for-items，是循环数组用的；"><a href="#3、wx-for、wx-for-item、wx-for-indexwx-for等价与wx-for-items，是循环数组用的；" class="headerlink" title="3、wx:for、wx:for-item、wx:for-indexwx:for等价与wx:for-items，是循环数组用的；"></a>3、wx:for、wx:for-item、wx:for-indexwx:for等价与wx:for-items，是循环数组用的；</h5><p>使用 wx:for-item 可以指定数组当前元素的变量名，<br>使用 wx:for-index 可以指定数组当前下标的变量名：默认 index<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:for =&quot;&#123;&#123;item.childlist&#125;&#125;&quot; wx:for-item=&quot;items&gt;</span><br><span class="line">&#123;&#123;item.id&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view wx:for=&quot;&#123;&#123;array&#125;&#125;&quot; wx:for-index=&quot;idx&quot; wx:for-item=&quot;itemName&quot;&gt;</span><br><span class="line">&#123;&#123;idx&#125;&#125;: &#123;&#123;itemName.message&#125;&#125;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure>
-<h5 id="4、wx-key"><a href="#4、wx-key" class="headerlink" title="4、wx:key"></a>4、wx:key</h5><p>如果列表中项目位置会动态改变或者可能会有新的项目会加入列表中<br>需要标识这个项目在列表的位置：<br>则可以选用ltem的某个唯一的属性作为Key<br>或者用 *this 关键字代表 for循环的item本身，这种表示需要item本身就是 一个唯一的字符串或者数字。<br>当数据改变触发渲染层重新渲染的时候，会校正带有 key 的组件，框架会确保他们被重新排序，而不是重新创建，以确保使组件保持自身的状态，并且提高列表渲染时的效率。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/20/微信小程序（一）/" data-id="cjrytv1od000lig53i0mjmi7i" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-bind-this" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/20/bind-this/" class="article-date">
-  <time datetime="2019-01-20T05:09:45.000Z" itemprop="datePublished">2019-01-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/20/bind-this/">.bind(this)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="this-handleClick-this-handleClick-bind-this"><a href="#this-handleClick-this-handleClick-bind-this" class="headerlink" title="this.handleClick = this.handleClick.bind(this);"></a>this.handleClick = this.handleClick.bind(this);</h5><h6 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h6><p>1、把原型方法handleClick( )改变为实例方法handleClick( ),并且强制指定这个方法中的this指向当前的实例。</p>
-<p>this 是指的当前组件的实例, 如果你在方法中的 this 指向不对的话, 那么当前组件里面的state, props你都无法使用的</p>
-<p>这样写的目的是确保handleclick里面的this指向的是当前这个类。</p>
-<p>因为this是在哪调用就指向哪的，你把那个函数当做props传给了子组件，执行就不是发生在当前类了。</p>
-<p>在react中这样写，是为了让子组件在调用这个函数的时候this是指向父组件的。</p>
-<p>若一个函数采用ES6箭头函数方式定义，则不需要使用.bind(this),因为箭头函数中的this指的是上下文中的this。 （函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象）。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/20/bind-this/" data-id="cjrytv1lc0008ig534roq6s0i" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-call-、apply-、bind-的用法" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/20/call-、apply-、bind-的用法/" class="article-date">
-  <time datetime="2019-01-20T04:55:11.000Z" itemprop="datePublished">2019-01-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/20/call-、apply-、bind-的用法/">call()、apply()、bind()的用法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="JavaScript-中-call-、apply-、bind-的用法"><a href="#JavaScript-中-call-、apply-、bind-的用法" class="headerlink" title="JavaScript 中 call()、apply()、bind() 的用法"></a>JavaScript 中 call()、apply()、bind() 的用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">obj.myFun.call(db,&apos;成都&apos;,&apos;上海&apos;)；　　　　 // 德玛 年龄 99 来自 成都去往上海</span><br><span class="line">obj.myFun.apply(db,[&apos;成都&apos;,&apos;上海&apos;]);      // 德玛 年龄 99 来自 成都去往上海</span><br><span class="line">obj.myFun.bind(db,&apos;成都&apos;,&apos;上海&apos;)();       // 德玛 年龄 99 来自 成都去往上海</span><br><span class="line">obj.myFun.bind(db,[&apos;成都&apos;,&apos;上海&apos;])();　　 // 德玛 年龄 99 来自 成都, 上海去往 undefined</span><br></pre></td></tr></table></figure>
-<h6 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h6><p>call 、bind 、 apply 这三个函数的第一个参数都是 this 的指向对象；<br>第二个参数差别是：<br>1、call 的参数是直接放进去的，第二第三第 n 个参数全都用逗号分隔，直接放到后面 obj.myFun.call(db,’成都’, … ,’string’ )。</p>
-<p>2、apply 的所有参数都必须放在一个数组里面传进去 obj.myFun.apply(db,[‘成都’, …, ‘string’ ])。</p>
-<p>3、bind 除了返回是函数以外，它 的参数和 call 一样。<br>当然，三者的参数不限定是 string 类型，允许是各种类型，包括函数 、 object 等等！</p>
-<p>4、bind 是返回对应 函数，便于稍后调用；apply 、call 则是立即调用 。</p>
-<h6 id="bind-方法"><a href="#bind-方法" class="headerlink" title="bind() 方法"></a>bind() 方法</h6><p>MDN 的解释是：bind() 方法会创建一个 新函数，称为绑定函数，当调用这个绑定函数时，绑定函数会以创建它时传入 bind() 方法的第一个参数 作为 this，传入 bind() 方法的 第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数。</p>
-<p>在 Javascript 中，多次 bind() 是无效的。更深层次的原因，bind() 的实现，相当于使用函数在内部包了一个 call / apply ，第二次 bind() 相当于再包住第一次 bind() ,故第二次以后的 bind 是无法生效的。</p>
-<p>bind方法生成了一个新的函数，称为绑定函数，传入bind方法的第一个參数作为这个绑定函数的this对象，传入bind的第二个參数连同后面调用绑定函数时传入的參数依照先后顺序（传入bind的在前）构成绑定函数的參数。</p>
-<p>.bind()创建了一个函数，当这个函数在被调用的时候。它的 this 关键词会被设置成被传入的值（这里指调用bind()时传入的參数）</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/20/call-、apply-、bind-的用法/" data-id="cjrytv1ls0009ig53lsqoqwhb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-react - 列表和key" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/06/react - 列表和key/" class="article-date">
-  <time datetime="2019-01-06T13:39:21.000Z" itemprop="datePublished">2019-01-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/06/react - 列表和key/">react - 列表和key</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="react-列表和key"><a href="#react-列表和key" class="headerlink" title="react - 列表和key"></a>react - 列表和key</h1><h6 id="1、列表"><a href="#1、列表" class="headerlink" title="1、列表"></a>1、列表</h6><p>使用 JavaScript 的 map() 方法来创建列表。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const numbers = [1, 2, 3, 4, 5];</span><br><span class="line">const listItems = numbers.map((numbers) =&gt;</span><br><span class="line">  &lt;li&gt;&#123;numbers&#125;&lt;/li&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p>但这样写Chrome控制台会提示我们，应该给列表中的每个元素添加一个名为key的属性。</p>
-<h6 id="2、key"><a href="#2、key" class="headerlink" title="2、key"></a>2、key</h6><p>   react使用key属性来标记列表中的每个元素，当列表发生变化时，react可以通过key知道哪些元素发生了变化，从而只重新渲染发生变化的元素，提高渲染效率。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const numbers = [1, 2, 3, 4, 5];</span><br><span class="line">const listItems = numbers.map((number) =&gt;</span><br><span class="line">  &lt;li key=&#123;number.toString()&#125;&gt;</span><br><span class="line">    &#123;number&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p>  一个元素的 key 最好是这个元素在列表中拥有的一个独一无二的字符串。通常，我们使用来自数据的 id 作为元素的 key<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const todoItems = todos.map((todo) =&gt;</span><br><span class="line">  &lt;li key=&#123;todo.id&#125;&gt;</span><br><span class="line">    &#123;todo.text&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p>当元素没有确定的 id 时，你可以使用他的序列号索引 index 作为 key。<br>但并不推荐使用索引作为key，因为一旦列表中的数据发生重排，数据的索引也会发生改变，不利于react的渲染。</p>
-<h6 id="3、问题"><a href="#3、问题" class="headerlink" title="3、问题"></a>3、问题</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li key=&#123;number.toString()&#125;&gt;</span><br></pre></td></tr></table></figure>
-<p>.toString()的作用</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/06/react - 列表和key/" data-id="cjrytv1ni000gig539jylhl4q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/20/React-super-props/" data-id="cjssx9h360003ks53x5lsv319" class="article-share-link">Share</a>
       
       
     </footer>
@@ -514,7 +533,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
     </div>
   </div>
 
@@ -527,23 +546,23 @@
       <ul>
         
           <li>
+            <a href="/2019/03/03/css中的“～”与“-”/">css中的“～”与“&gt;”</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/03/a标签唤起拨打电话页面/">a标签唤起拨打电话页面</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/03/first-child和first-of-type/">first-child和first-of-type</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/03/‘组件通信/">组件通信</a>
+          </li>
+        
+          <li>
             <a href="/2019/02/10/自己怎么坑自己的/">自己怎么坑自己的......</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/10/Scss、Less/">Scss、Less</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/10/去掉textarea右下角的三角/">去掉textarea右下角的三角</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/10/ESLint/">ESLint</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/10/setState问题/">setState问题</a>
           </li>
         
       </ul>
