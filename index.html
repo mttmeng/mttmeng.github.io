@@ -65,16 +65,26 @@
     <article id="post-new Date() 格式处理" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/09/01/new Date() 格式处理/" class="article-date">
-  <time datetime="2019-09-01T14:30:11.058Z" itemprop="datePublished">2019-09-01</time>
+  <time datetime="2019-09-01T14:30:11.000Z" itemprop="datePublished">2019-09-01</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/01/new Date() 格式处理/">new Date() 格式处理</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="new-Date-格式处理"><a href="#new-Date-格式处理" class="headerlink" title="new Date() 格式处理"></a>new Date() 格式处理</h2><p>在一次开发中，我要实现按创建时间倒叙展示的table。但后端在处理数据时将创建时间转化成了字符串，所以我需要将其转化为时间格式来进行比较。</p>
+        <p>在一次开发中，我要实现按创建时间倒叙展示的table。但后端在处理数据时将创建时间转化成了字符串，所以我需要将其转化为时间格式来进行比较。</p>
 <h4 id="1、将字符串形式的日期转换成日期对象"><a href="#1、将字符串形式的日期转换成日期对象" class="headerlink" title="1、将字符串形式的日期转换成日期对象"></a>1、将字符串形式的日期转换成日期对象</h4><p>const strDate=”2019-09-01”;    //字符串日期格式<br>const date= new Date(Date.parse(strDate.replace(/-/g,  “/“)));      //转换成Data();  </p>
 <h4 id="2、将时间格式字符串形式的日期转换成时间戳"><a href="#2、将时间格式字符串形式的日期转换成时间戳" class="headerlink" title="2、将时间格式字符串形式的日期转换成时间戳"></a>2、将时间格式字符串形式的日期转换成时间戳</h4><p>const strDate=”2019-09-01”;    //字符串日期格式<br>const parseDate= new Date(strDate.replace(/-/g,  “/“));<br>const date= parseDate.getTimer();</p>
 <h4 id="3、将日期格式转为日期标准字符串"><a href="#3、将日期格式转为日期标准字符串" class="headerlink" title="3、将日期格式转为日期标准字符串"></a>3、将日期格式转为日期标准字符串</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const date=&quot;2019-09-01&quot;;</span><br><span class="line">this.formatDate (date);</span><br><span class="line">formatDate = (date) =&gt; &#123;  </span><br><span class="line">const y = date.getFullYear();  </span><br><span class="line">const m = date.getMonth() + 1;  </span><br><span class="line">m = m &lt; 10 ? &apos;0&apos; + m : m;   </span><br><span class="line">const d = date.getDate();  </span><br><span class="line">d = d &lt; 10 ? (&apos;0&apos; + d) : d;  </span><br><span class="line">return y + &apos;-&apos; + m + &apos;-&apos; + d;  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -82,7 +92,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/01/new Date() 格式处理/" data-id="ck012zjor000hjk53u8u6tp3e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/09/01/new Date() 格式处理/" data-id="ck013c9tf000hbk53ct9o9eck" class="article-share-link">Share</a>
       
       
     </footer>
@@ -130,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/03/css中的“～”与“-”/" data-id="ck012zjnh000bjk53fkggfvv5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/03/css中的“～”与“-”/" data-id="ck013c9pz000bbk53klmzxbc7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -167,7 +177,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/03/a标签唤起拨打电话页面/" data-id="ck012zjml0008jk53twu9siy9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/03/a标签唤起拨打电话页面/" data-id="ck013c9of0008bk53qn7bls9k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -217,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/03/first-child和first-of-type/" data-id="ck012zjnw000djk5362wgwyk9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/03/first-child和first-of-type/" data-id="ck013c9qr000dbk53qw1v74v2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -260,7 +270,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/03/‘组件通信/" data-id="ck012zjpn000njk533x4n7uze" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/03/‘组件通信/" data-id="ck013c9v7000nbk53btilvvog" class="article-share-link">Share</a>
       
       
     </footer>
@@ -298,7 +308,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/自己怎么坑自己的/" data-id="ck012zjqi000tjk53sspbzqol" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/10/自己怎么坑自己的/" data-id="ck013c9x3000tbk53jj86bx9g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -339,7 +349,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/Scss、Less/" data-id="ck012zjlq0005jk53unpwwck0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/10/Scss、Less/" data-id="ck013c9n70005bk537m1av2b6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -376,7 +386,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/去掉textarea右下角的三角/" data-id="ck012zjpn000ojk53vefwrli0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/10/去掉textarea右下角的三角/" data-id="ck013c9vj000obk53usmnjcbx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -414,7 +424,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/ESLint/" data-id="ck012zjjk0000jk53sj7cv46f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/10/ESLint/" data-id="ck013c9kf0000bk53xdishj9u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -464,7 +474,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/setState问题/" data-id="ck012zjpn000mjk53jj9e85ym" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/10/setState问题/" data-id="ck013c9uz000mbk539rog30qs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -510,7 +520,7 @@
       <ul>
         
           <li>
-            <a href="/2019/09/01/new Date() 格式处理/">(no title)</a>
+            <a href="/2019/09/01/new Date() 格式处理/">new Date() 格式处理</a>
           </li>
         
           <li>
