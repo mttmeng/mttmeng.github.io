@@ -62,6 +62,36 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-new Date() 格式处理" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/01/new Date() 格式处理/" class="article-date">
+  <time datetime="2019-09-01T14:30:11.058Z" itemprop="datePublished">2019-09-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="new-Date-格式处理"><a href="#new-Date-格式处理" class="headerlink" title="new Date() 格式处理"></a>new Date() 格式处理</h2><p>在一次开发中，我要实现按创建时间倒叙展示的table。但后端在处理数据时将创建时间转化成了字符串，所以我需要将其转化为时间格式来进行比较。</p>
+<h4 id="1、将字符串形式的日期转换成日期对象"><a href="#1、将字符串形式的日期转换成日期对象" class="headerlink" title="1、将字符串形式的日期转换成日期对象"></a>1、将字符串形式的日期转换成日期对象</h4><p>const strDate=”2019-09-01”;    //字符串日期格式<br>const date= new Date(Date.parse(strDate.replace(/-/g,  “/“)));      //转换成Data();  </p>
+<h4 id="2、将时间格式字符串形式的日期转换成时间戳"><a href="#2、将时间格式字符串形式的日期转换成时间戳" class="headerlink" title="2、将时间格式字符串形式的日期转换成时间戳"></a>2、将时间格式字符串形式的日期转换成时间戳</h4><p>const strDate=”2019-09-01”;    //字符串日期格式<br>const parseDate= new Date(strDate.replace(/-/g,  “/“));<br>const date= parseDate.getTimer();</p>
+<h4 id="3、将日期格式转为日期标准字符串"><a href="#3、将日期格式转为日期标准字符串" class="headerlink" title="3、将日期格式转为日期标准字符串"></a>3、将日期格式转为日期标准字符串</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const date=&quot;2019-09-01&quot;;</span><br><span class="line">this.formatDate (date);</span><br><span class="line">formatDate = (date) =&gt; &#123;  </span><br><span class="line">const y = date.getFullYear();  </span><br><span class="line">const m = date.getMonth() + 1;  </span><br><span class="line">m = m &lt; 10 ? &apos;0&apos; + m : m;   </span><br><span class="line">const d = date.getDate();  </span><br><span class="line">d = d &lt; 10 ? (&apos;0&apos; + d) : d;  </span><br><span class="line">return y + &apos;-&apos; + m + &apos;-&apos; + d;  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/09/01/new Date() 格式处理/" data-id="ck012zjor000hjk53u8u6tp3e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-css中的“～”与“-”" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/03/css中的“～”与“-”/" class="article-date">
@@ -100,7 +130,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/03/css中的“～”与“-”/" data-id="cjssxjhov000b7o5304d9p5ze" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/03/css中的“～”与“-”/" data-id="ck012zjnh000bjk53fkggfvv5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -137,7 +167,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/03/a标签唤起拨打电话页面/" data-id="cjssxjho000087o53qdy0v7ru" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/03/a标签唤起拨打电话页面/" data-id="ck012zjml0008jk53twu9siy9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -187,7 +217,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/03/first-child和first-of-type/" data-id="cjssxjhp8000d7o53v3ax009a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/03/first-child和first-of-type/" data-id="ck012zjnw000djk5362wgwyk9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -230,7 +260,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/03/‘组件通信/" data-id="cjssxjhqj000m7o53hhcxvzeg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/03/‘组件通信/" data-id="ck012zjpn000njk533x4n7uze" class="article-share-link">Share</a>
       
       
     </footer>
@@ -268,7 +298,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/自己怎么坑自己的/" data-id="cjssxjhre000s7o53m2l7y5lb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/10/自己怎么坑自己的/" data-id="ck012zjqi000tjk53sspbzqol" class="article-share-link">Share</a>
       
       
     </footer>
@@ -309,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/Scss、Less/" data-id="cjssxjhn400057o5345h3yzrf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/10/Scss、Less/" data-id="ck012zjlq0005jk53unpwwck0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -346,7 +376,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/去掉textarea右下角的三角/" data-id="cjssxjhqy000n7o537eele25z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/10/去掉textarea右下角的三角/" data-id="ck012zjpn000ojk53vefwrli0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -384,7 +414,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/ESLint/" data-id="cjssxjhm900017o53x1ozb36u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/10/ESLint/" data-id="ck012zjjk0000jk53sj7cv46f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -434,44 +464,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/setState问题/" data-id="cjssxjhqj000l7o53rqfqh739" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-antd-Popover" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/02/10/antd-Popover/" class="article-date">
-  <time datetime="2019-02-10T10:49:30.000Z" itemprop="datePublished">2019-02-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/10/antd-Popover/">antd - Popover</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="Popover问题："><a href="#Popover问题：" class="headerlink" title="Popover问题："></a>Popover问题：</h6><p>在渲染state中造的死数据时，气泡卡片默认为一行,在给气泡卡片设置宽度后，卡片宽度会按照设置显示，但内容会撑出卡片；<br>而使用接口获得的数据渲染时，这种情况不会出现，渲染正常。<br>待验证～～～～～～</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/antd-Popover/" data-id="cjssxjhnk00077o53uevxze60" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/10/setState问题/" data-id="ck012zjpn000mjk53jj9e85ym" class="article-share-link">Share</a>
       
       
     </footer>
@@ -485,7 +478,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -504,7 +497,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
     </div>
   </div>
 
@@ -515,6 +508,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/09/01/new Date() 格式处理/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2019/03/03/css中的“～”与“-”/">css中的“～”与“&gt;”</a>
@@ -530,10 +527,6 @@
         
           <li>
             <a href="/2019/03/03/‘组件通信/">组件通信</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/10/自己怎么坑自己的/">自己怎么坑自己的......</a>
           </li>
         
       </ul>
