@@ -62,6 +62,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-数组去重" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/03/数组去重/" class="article-date">
+  <time datetime="2019-09-02T16:11:19.000Z" itemprop="datePublished">2019-09-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/03/数组去重/">数组去重</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="1、双循环去重"><a href="#1、双循环去重" class="headerlink" title="1、双循环去重"></a>1、双循环去重</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">unique = (arr) =&gt; &#123;</span><br><span class="line">    if (!Array.isArray(arr)) &#123;</span><br><span class="line">        console.log(&apos;type error!&apos;)</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    let res = [arr[0]]</span><br><span class="line">    for (let i = 1; i &lt; arr.length; i++) &#123;</span><br><span class="line">        let flag = true</span><br><span class="line">        for (let j = 0; j &lt; res.length; j++) &#123;</span><br><span class="line">            if (arr[i] === res[j]) &#123;</span><br><span class="line">                flag = false;</span><br><span class="line">                break</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (flag) &#123;</span><br><span class="line">            res.push(arr[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2、indexOf去重"><a href="#2、indexOf去重" class="headerlink" title="2、indexOf去重"></a>2、indexOf去重</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">unique = (arr) =&gt; &#123;</span><br><span class="line">    if (!Array.isArray(arr)) &#123;</span><br><span class="line">        console.log(&apos;type error!&apos;)</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    let res = []</span><br><span class="line">    for (let i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">        if (res.indexOf(arr[i]) === -1) &#123;</span><br><span class="line">            res.push(arr[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="3、ES6-Set方法去重"><a href="#3、ES6-Set方法去重" class="headerlink" title="3、ES6 Set方法去重"></a>3、ES6 Set方法去重</h5><p>ES6中新增的数据类型set，其中数据不重复。<br>Set函数可以接受一个数组（或类数组对象）作为参数来初始化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">unique = (arr) =&gt; &#123;</span><br><span class="line">    if (!Array.isArray(arr)) &#123;</span><br><span class="line">        console.log(&apos;type error!&apos;)</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    return [...new Set(arr)]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="4、Array-from与set结合去重"><a href="#4、Array-from与set结合去重" class="headerlink" title="4、Array.from与set结合去重"></a>4、Array.from与set结合去重</h5><p>   Array.from方法可以将Set结构转换为数组结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">unique= (arr) =&gt; &#123;</span><br><span class="line">    if (!Array.isArray(arr)) &#123;</span><br><span class="line">        console.log(&apos;type error!&apos;)</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    return Array.from(new Set(arr))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="数组对象去重"><a href="#数组对象去重" class="headerlink" title="数组对象去重"></a>数组对象去重</h2><p>利用对象的键名无法重复的特点进行去重，前提是必须知道至少一个对象数组中的对象的属性名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let obj = &#123;&#125;;</span><br><span class="line">newData = Data.reduce((cur = [], next = []) =&gt; &#123;</span><br><span class="line">  if (!obj[next.roleId]) &#123;</span><br><span class="line">    obj[next.roleId] = true;</span><br><span class="line">    cur.push(next);</span><br><span class="line">  &#125;</span><br><span class="line">  return cur;</span><br><span class="line">&#125;, []);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/09/03/数组去重/" data-id="ck02lu3q6000rbg53701ao0zg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-new Date() 格式处理" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/09/01/new Date() 格式处理/" class="article-date">
@@ -92,7 +134,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/01/new Date() 格式处理/" data-id="ck013c9tf000hbk53ct9o9eck" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/09/01/new Date() 格式处理/" data-id="ck02lu3oi000hbg53mvksmktf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -140,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/03/css中的“～”与“-”/" data-id="ck013c9pz000bbk53klmzxbc7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/03/css中的“～”与“-”/" data-id="ck02lu3na000bbg53769pik67" class="article-share-link">Share</a>
       
       
     </footer>
@@ -177,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/03/a标签唤起拨打电话页面/" data-id="ck013c9of0008bk53qn7bls9k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/03/a标签唤起拨打电话页面/" data-id="ck02lu3m60008bg53d15qdts2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -227,7 +269,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/03/first-child和first-of-type/" data-id="ck013c9qr000dbk53qw1v74v2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/03/first-child和first-of-type/" data-id="ck02lu3nq000dbg53emhvsp4p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -270,7 +312,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/03/‘组件通信/" data-id="ck013c9v7000nbk53btilvvog" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/03/‘组件通信/" data-id="ck02lu3pi000nbg53wehprspv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -308,7 +350,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/自己怎么坑自己的/" data-id="ck013c9x3000tbk53jj86bx9g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/10/自己怎么坑自己的/" data-id="ck02lu3qq000ubg53v5uu3zyh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -349,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/Scss、Less/" data-id="ck013c9n70005bk537m1av2b6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/10/Scss、Less/" data-id="ck02lu3le0005bg53nu80kf3e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -386,7 +428,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/去掉textarea右下角的三角/" data-id="ck013c9vj000obk53usmnjcbx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/10/去掉textarea右下角的三角/" data-id="ck02lu3pm000obg53aamiazig" class="article-share-link">Share</a>
       
       
     </footer>
@@ -424,57 +466,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/ESLint/" data-id="ck013c9kf0000bk53xdishj9u" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-setState问题" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/02/10/setState问题/" class="article-date">
-  <time datetime="2019-02-10T10:52:33.000Z" itemprop="datePublished">2019-02-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/10/setState问题/">setState问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="state："><a href="#state：" class="headerlink" title="state："></a>state：</h5><p>它是组件的”私有属性（或者是局部属性），由组件本身完全控制。</p>
-<h6 id="setState："><a href="#setState：" class="headerlink" title="setState："></a>setState：</h6><p>1、不要直接修改 state(状态)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.state.comment = &apos;Hello&apos;;</span><br></pre></td></tr></table></figure></p>
-<p>2、state更新可能是异步的</p>
-<p>React 为了优化性能，有可能会将多个 setState() 调用合并为一次更新。<br>因为this.props和this.state 可能是异步更新的，所以不能依赖他们的值计算下一个state(状态)。<br>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.setState(&#123;</span><br><span class="line">  counter: this.state.counter + this.props.increment,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>如果有这种需求，可以这样写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">this.setState((prevState, props) =&gt; (&#123;</span><br><span class="line">  counter: prevState.counter + props.increment&#125;));</span><br></pre></td></tr></table></figure></p>
-<p>第一个参数为前一个状态，第二个参数为应用更新时的 props</p>
-<p>3、state(状态)更新会被合并</p>
-<p>当你调用 setState()， React 将合并你提供的对象到当前的状态中。所以当State是一个多键值的结构时，可以单独更新其中的一个，此时会进行”差分”更新，不会影响其他的属性值。</p>
-<h5 id="setState-的异步更新。"><a href="#setState-的异步更新。" class="headerlink" title="setState()的异步更新。"></a>setState()的异步更新。</h5><p>1、执行setState()之后干了什么setState()方法通过一个队列机制实现state更新，当执行setState()的时候，会将需要更新的state合并之后放入状态队列，而不会立即更新this.state(可以和浏览器的事件队列类比)。如果我们不使用setState而是使用this.state.key来修改，将不会触发组件的re-render。如果将this.state赋值给一个新的对象引用，那么其他不在对象上的state将不会被放入状态队列中，当下次调用setState()并对状态队列进行合并时，直接造成了state丢失。</p>
-<p>2、setState()可以接受一个函数作为参数？<br>setState() 不仅能够接受一个对象作为参数，还能够接受一个函数作为参数。函数的参数即为 state 的前一个状态以及 props。</p>
-<p>3、执行setState()后能拿到最新的state值吗？</p>
-<p>4、由 React 控制的事件处理过程 setState 不会同步更新 this.state！<br>也就是说，在 React 控制之外的情况， setState 会同步更新 this.state！<br>但大部份的使用情况下，我们都是使用了 React 库中的表单组件，例如 select、input、button 等等，它们都是 React 库中人造的组件与事件，是处于 React 库的控制之下，比如组件原色 onClick 都是经过 React 包装。在这个情况下，setState 就会以异步的方式执行。</p>
-<h6 id="我这次的问题"><a href="#我这次的问题" class="headerlink" title="我这次的问题"></a>我这次的问题</h6><p>在写edit功能时，我遇到一个问题，在setState中直接将form的值赋给currentData，会出现错误，form值并未能成功立即赋给currentData。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const state = this.state;</span><br><span class="line">  this.setState(&#123;</span><br><span class="line">    currentData: form,</span><br><span class="line">    editVisible: !this.state.editVisible,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>后来，我使用这种写法，成功将form的值赋给currentData，但在今天，我又试了第一种方法，发现又没有问题了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const state = this.state;</span><br><span class="line">  state.currentData = form;</span><br><span class="line">  state.editVisible = !this.state.editVisible;</span><br><span class="line">  this.setState(&#123;</span><br><span class="line">    state,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/10/setState问题/" data-id="ck013c9uz000mbk539rog30qs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/10/ESLint/" data-id="ck02lu3j60000bg530rcieidw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -520,6 +512,10 @@
       <ul>
         
           <li>
+            <a href="/2019/09/03/数组去重/">数组去重</a>
+          </li>
+        
+          <li>
             <a href="/2019/09/01/new Date() 格式处理/">new Date() 格式处理</a>
           </li>
         
@@ -533,10 +529,6 @@
         
           <li>
             <a href="/2019/03/03/first-child和first-of-type/">first-child和first-of-type</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/03/‘组件通信/">组件通信</a>
           </li>
         
       </ul>
